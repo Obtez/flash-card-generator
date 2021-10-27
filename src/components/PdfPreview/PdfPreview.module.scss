@@ -1,0 +1,67 @@
+@page {
+  margin: 1.25cm 2cm 1.5cm 2cm;
+}
+
+// @media print {
+//   .pageInnerContainer {
+//     height: 30cm;
+//     display: grid;
+//     grid-template-columns: repeat(2, 8.5cm);
+//     grid-template-rows: repeat(5, 5.4cm);
+//     background-color: red;
+
+//     .card {
+//       border: 1px solid black;
+//       display: flex;
+//       flex-direction: column;
+//       .cardBody {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         padding: 0 .5cm;
+//         flex-grow: 2;
+//       }
+//       .cardFooter {
+//         border-top: 1px solid black;
+//         display: flex;
+//         align-items: center;
+//         padding: 0 .5cm;
+//         flex-grow: 1;
+//       }
+//     }
+//   }
+// }
+
+
+@media print {
+  .pageInnerContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 8.5cm);
+    grid-template-rows: repeat(5,5.4cm);
+  }
+  
+  .card {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    .cardBody {
+      flex-grow: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cardFooter {
+      border-top: 1px solid black;
+      flex-grow: 1;
+      display: flex;
+      align-items: flex-end;
+
+      p {
+        width: 90%;
+        margin: auto;
+        text-align: end;
+      }
+    }
+  }
+}
