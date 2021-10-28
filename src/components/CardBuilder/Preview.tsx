@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Card } from "../../types";
+import CardSide from './Preview/CardSide';
 import styles from "./_styles/Preview.module.scss";
 
 interface PropsType {
@@ -8,10 +9,9 @@ interface PropsType {
 
 const Preview = ({ cardStack }: PropsType) => {
   let sortedPages: Card[][] = []
-  let allCards = cardStack
 
-   function sortCardsIntoPages() {
-     let cards: Card[] = allCards;
+   function sortCardsIntoPageArrays() {
+     let cards: Card[] = cardStack;
      let pagesArray: Card[][] = []
 
      let i = cards.length
@@ -36,33 +36,16 @@ const Preview = ({ cardStack }: PropsType) => {
   }
   
   function displayPages() {
-     sortCardsIntoPages()
-     return sortedPages.map((p, index) => {
+     sortCardsIntoPageArrays()
+     return sortedPages.map((cardPair) => {
       return (
         <div key={uuidv4()}>
           <div className={styles.pageInnerContainerFront} key={uuidv4()}>
-            {p.map(text => {
-              return (
-
-                  <div className={styles.card} key={uuidv4()}>
-                    <div className={styles.cardBody}>
-                      <p>{text.front}</p>
-                    </div>
-                  </div>
-
-              )
-            })}
+            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={true} />)}
           </div>
+
           <div className={styles.pageInnerContainerBack} key={ uuidv4()}>
-            {p.map(text => {
-              return (
-                <div className={styles.card} key={uuidv4()}>
-                  <div className={styles.cardBody}>
-                    <p>{text.back}</p>
-                  </div>
-                </div>
-              )
-            })}
+            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={false} />)}
           </div>
         </div>
       )
