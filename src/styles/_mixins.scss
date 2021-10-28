@@ -27,3 +27,18 @@
     text-decoration: underline;
   }
 }
+
+@mixin cardFace {
+   margin: auto;
+  width: 90vw;
+  height: 50vw;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  position: relative;
+  border-radius: 5px;
+  background-color: $bg-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}

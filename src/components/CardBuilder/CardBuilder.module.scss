@@ -1,0 +1,91 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+@media print {
+  .noPrintContainer {
+    display: none;
+  }
+
+  .cardBuilderContainer {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen {
+  .cardBuilderContainer {
+    @include container;
+    text-align: center;
+  }
+
+  .primaryBtn {
+    @include button(true);
+    display: block;
+    padding: .5em 1em;
+    margin-top: 1em
+  }
+
+  .cardBuilderForm {
+    display: flex;
+      flex-direction: column;
+      padding: 0 2rem;
+
+      label {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .inputGroup {
+        position: relative;
+        margin-bottom: 1.25em;
+      }
+
+      input {
+        width: 100%;
+        padding: .75em 1em;
+        font-size: 1.2rem;
+        border: none;
+        border-bottom: 3px solid #ccc;
+        position: relative;
+      }
+
+      .charCounter {
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+        z-index: 2;
+        color: $text-muted;
+      }
+
+      input[type=submit] {
+        @include button(true);
+        background-color: $accent;
+      }
+  }
+
+  .cardList {
+    h2 {
+      padding: 1em 0;
+      margin: 1.5em 0;
+      background-color: $primary-light;
+    }
+  }
+
+  .cardItem {
+    padding-top: 1.5rem;
+    margin-bottom: 3rem;
+    background-color: $primary;
+
+    display: flex;
+    flex-direction: column;
+  
+    .cardFront {
+    @include cardFace;
+    }
+
+    .cardBack {
+      @include cardFace;
+    
+    }
+  }
+}

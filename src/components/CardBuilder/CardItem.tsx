@@ -1,4 +1,6 @@
-import {Card} from "../../types"
+import { Card } from "../../types";
+
+import styles from "./CardBuilder.module.scss";
 
 interface PropsType {
   card: Card
@@ -6,9 +8,13 @@ interface PropsType {
 
 const CardItem = ({card}: PropsType) => {
   return (
-  <li>
-    <p>{card.front}</p>
-    <p>{card.back}</p>
+  <li className={styles.cardItem}>
+    <div className={styles.cardFront}>
+        <p>{card.front}</p>
+    </div>
+     <div className={styles.cardBack}>
+        <p>{card.back}</p>
+      </div>
   </li>
   )
 }

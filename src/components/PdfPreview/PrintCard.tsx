@@ -1,22 +1,18 @@
+import {Card} from "../../types"
 import styles from "./PdfPreview.module.scss";
 
-interface testCard {
-  text: string,
-  footer: string,
-}
-
 interface PropsType {
-  card: testCard
+  card: Card
 }
 
 const PrintCard = ({card}: PropsType) => {
   return (
     <div className={styles.card}>
     <div className={styles.cardBody}>
-        <p>{card.text}</p>
+        <p>{card.front}</p>
     </div>
     <div className={styles.cardFooter}>
-      <p>{card.footer}</p>
+      <p>{card.back}</p>
     </div>
     </div>
   )

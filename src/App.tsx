@@ -1,10 +1,10 @@
-import Router from "./router"
+import Router from "./router";
 import './styles/App.scss';
 
 function App() {
   return (
     <Router />
-  );
+  )
 }
 
 export default App;

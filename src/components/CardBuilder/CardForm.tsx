@@ -1,6 +1,7 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import { Card } from "../../types"
+import { Card } from "../../types";
+import styles from "./CardBuilder.module.scss";
 
 interface PropsType {
   addCardToStack: (card: Card) => void;
@@ -9,6 +10,9 @@ interface PropsType {
 const CardForm = ({addCardToStack}: PropsType) => {
   const [front, setFront] = useState("")
   const [back, setBack] = useState("")
+
+  const [charCountFront, setCharCountFront] = useState(140)
+  const [charCountBack, setCharCountBack] = useState(140)
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -37,16 +41,24 @@ const CardForm = ({addCardToStack}: PropsType) => {
     setBack("")
   }
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="front">
-        <input type="text" id="front" value={front} onChange={(e) => setFront(e.target.value)} />
-      </label>
-      <label htmlFor="back">
-        <input type="text" id="front" value={back} onChange={(e) => setBack(e.target.value)} />
-      </label>
+  useEffect(() => {
+    setCharCountFront(140 - front.length)
+    setCharCountBack(140-back.length)
+  }, [front, back])
 
-      <input type="submit" />
+  return (
+    <form onSubmit={handleSubmit} className={styles.cardBuilderForm}>
+      <label htmlFor="front">Front</label>
+      <div className={styles.inputGroup}>
+        <input type="text" id="front" maxLength={140} value={front} onChange={(e) => setFront(e.target.value)} />
+        <small className={styles.charCounter}>{charCountFront}</small>
+      </div>
+      <label htmlFor="back">Back</label>
+      <div className={styles.inputGroup}>
+      <input type="text" maxLength={140} id="front" value={back} onChange={(e) => setBack(e.target.value)} />
+        <small className={styles.charCounter}>{charCountBack}</small>
+      </div>
+      <input type="submit" value="Add" />
     </form>
   )
 }
