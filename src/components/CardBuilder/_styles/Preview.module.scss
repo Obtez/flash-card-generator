@@ -1,9 +1,3 @@
-
-
-// @page {
-//   margin: 1.25cm 2cm 1.5cm 2cm;
-// }
-
 @media print {
   html {
     height: 90%;
@@ -13,12 +7,8 @@
     margin: 0;
     padding: 0;
     display: grid;
-    // margin: auto;
-    // grid-template-columns: repeat(2, 8.5cm);
     grid-template-columns: repeat(2, 50%);
-
     grid-template-rows: repeat(5,5.4cm);
-    // page-break-after: always;
     break-inside: avoid-page;
     overflow: hidden;
   }
@@ -37,7 +27,6 @@
 
     .cardFooter {
       border: .5px dashed rgba(0,0,0, .1);
-
       flex-grow: 1;
       display: flex;
       align-items: flex-end;
@@ -54,25 +43,17 @@
     margin: 0;
     padding: 0;
      display: grid;
-    //  height: 29.7cm;
      direction: rtl;
-    // margin: auto;
-    // grid-template-columns: repeat(2, 8.5cm);
     grid-template-columns: repeat(2, 50%);
-
     grid-template-rows: repeat(5,5.4cm);
-    // page-break-after: always;
     break-inside: avoid-page;
     overflow: hidden;
-
   }
   
   .card {
     border: .5px dashed rgba(0,0,0, .1);
-
     display: flex;
     flex-direction: column;
-    
     .cardBody {
       flex-grow: 10;
       display: flex;
@@ -82,7 +63,6 @@
 
     .cardFooter {
       border: .5px dashed rgba(0,0,0, .1);
-
       flex-grow: 1;
       display: flex;
       align-items: flex-end;

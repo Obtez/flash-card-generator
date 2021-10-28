@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card } from "../../types"
 import CardForm from "./CardForm";
 import CardList from "./CardList";
-
 import { AiOutlineFileSearch, AiOutlineDownload } from "react-icons/ai";
-
-import styles from "./CardBuilder.module.scss";
+import styles from "./_styles/CardBuilder.module.scss";
 import Preview from "./Preview";
 
 

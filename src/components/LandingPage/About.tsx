@@ -1,4 +1,4 @@
-import styles from "./LandingPage.module.scss";
+import styles from "./_styles/LandingPage.module.scss";
 
 const About = () => {
   return (

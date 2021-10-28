@@ -1,6 +1,6 @@
 import { Card } from "../../types";
 import CardItem from "./CardItem";
-import styles from "./CardBuilder.module.scss"
+import styles from "./_styles/CardBuilder.module.scss";
 
 interface PropsType {
   cardStack: Card[]

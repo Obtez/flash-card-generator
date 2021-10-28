@@ -1,6 +1,5 @@
 import { Card } from "../../types";
-
-import styles from "./CardBuilder.module.scss";
+import styles from "./_styles/CardBuilder.module.scss";
 
 interface PropsType {
   card: Card

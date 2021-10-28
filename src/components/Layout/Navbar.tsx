@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
-import styles from "./Layout.module.scss";
+import styles from "./_styles/Layout.module.scss";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

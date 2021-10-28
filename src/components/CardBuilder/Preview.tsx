@@ -1,7 +1,7 @@
-import { ReactChild, useState, useEffect } from "react";
+import { ReactChild, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { Card } from "../../types";
-import styles from "./Preview.module.scss";
+import styles from "./_styles/Preview.module.scss";
 
 interface PropsType {
   cardStack: Card[]
