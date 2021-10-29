@@ -6,7 +6,6 @@ import { AiOutlineFileSearch, AiOutlineDownload } from "react-icons/ai";
 import styles from "../_styles/CardBuilder.module.scss";
 import Preview from "../Preview/Preview";
 
-
 const BuilderPage = () => {
   const [cardStack, setCardStack] = useState<ICard[]>([])
   const [showPreview, setShowPreview] = useState(false)
@@ -51,12 +50,18 @@ const BuilderPage = () => {
   return (
     <main className={styles.cardBuilderContainer}>
       <div className={styles.noPrintContainer}>
+
         <h1>CardBuilder</h1>
+
         <button onClick={MOCKDATA}>MOCK DATA</button>
+
         <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
+
         <button type="button" className={styles.primaryBtn} onClick={() => togglePreview()}><AiOutlineFileSearch /> Preview</button>
-        <button type="button" className={styles.primaryBtn}><AiOutlineDownload/> Download</button>
+        <button type="button" className={styles.primaryBtn}><AiOutlineDownload /> Download</button>
+        
         {cardStack.length > 0 ? <CardList cardStack={cardStack} /> : null}
+
       </div>
       {
         showPreview ? <Preview cardStack={cardStack} /> : ""
