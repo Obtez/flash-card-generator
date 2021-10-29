@@ -1,7 +1,7 @@
-import {Switch, Route, BrowserRouter} from "react-router-dom"
-import CardBuilderPage from "../components/CardBuilder"
-import LandingPage from "../components/LandingPage"
-import PageNotFound from "../components/PageNotFound"
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import BuilderPage from "../views/Builder/BuilderPage/BuilderPage";
+import HomePage from "../views/Home/HomePage/HomePage";
+import PageNotFound from "../views/PageNotFound/PageNotFound";
 
 const Router = () => {
   return (
@@ -11,12 +11,12 @@ const Router = () => {
 
         {/* Homepage */}
         <Route exact path="/">
-          <LandingPage />
+          <HomePage />
         </Route>
 
         {/* Card Builder */}
         <Route exact path="/build">
-          <CardBuilderPage />
+          <BuilderPage />
         </Route>
 
         {/* 404 Not Found */}
