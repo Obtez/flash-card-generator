@@ -15,10 +15,12 @@ const CardList = ({cardStack}: PropsType) => {
   
   return (
     <section className={styles.cardList}>
+
       <h2>Your Cards</h2>
       <ul>
         {cards}
       </ul>
+      
     </section>  
   )
 }

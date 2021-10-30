@@ -49,6 +49,9 @@ const BuilderPage = () => {
 
   return (
     <main className={styles.cardBuilderContainer}>
+       {
+        showPreview ? <Preview cardStack={cardStack} /> : ""
+      }
       <div className={styles.noPrintContainer}>
 
         <h1>CardBuilder</h1>
@@ -63,9 +66,6 @@ const BuilderPage = () => {
         {cardStack.length > 0 ? <CardList cardStack={cardStack} /> : null}
 
       </div>
-      {
-        showPreview ? <Preview cardStack={cardStack} /> : ""
-      }
     </main>
   )
 }

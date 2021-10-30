@@ -7,13 +7,16 @@ interface PropsType {
 
 const Card = ({card}: PropsType) => {
   return (
-  <li className={styles.cardItem}>
+    <li className={styles.cardItem}>
+      
     <div className={styles.cardFront}>
         <p>{card.front}</p>
-    </div>
+      </div>
+      
      <div className={styles.cardBack}>
         <p>{card.back}</p>
       </div>
+
   </li>
   )
 }

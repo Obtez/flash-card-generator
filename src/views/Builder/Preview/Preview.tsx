@@ -33,17 +33,26 @@ const Preview = ({ cardStack }: PropsType) => {
       }
     }
      sortedPages = pagesArray;
-  }
+   }
   
-  function displayPages() {
-     sortCardsIntoPageArrays()
-     return sortedPages.map((cardPair) => {
+  
+  // To enable easy 2-side print, the front and the back of each card need to be on different pages
+  // and aligend correctly. 
+  function generatePages() {
+    // sortedPages [[page1 card fronts], [page2 card backs],...]
+    // one array per page
+    sortCardsIntoPageArrays()
+    
+    return sortedPages.map((cardPair) => {
+       
       return (
         <div key={uuidv4()}>
+          {/* page 1 with card fronts */}
           <div className={styles.pageInnerContainerFront} key={uuidv4()}>
             {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={true} />)}
           </div>
 
+          {/* page 2 with card backs */}
           <div className={styles.pageInnerContainerBack} key={ uuidv4()}>
             {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={false} />)}
           </div>
@@ -54,7 +63,7 @@ const Preview = ({ cardStack }: PropsType) => {
   
   return (
     <div>
-      {displayPages()}
+      {generatePages()}
     </div>
   )
 }
