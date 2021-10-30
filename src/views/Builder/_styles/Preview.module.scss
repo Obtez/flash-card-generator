@@ -1,8 +1,81 @@
 @import "../../../styles/mixins";
 
+@media screen {
+  .previewLayout {
+    padding: 0 5vw;
+
+    header {
+
+      h1 {
+        color: white;
+      }
+
+      p {
+        color: white;
+        font-size: 1.2rem;
+      }
+    }
+    
+    .pageContainer {
+      height: 60vh;
+      overflow: scroll;
+    
+      .preview {
+      
+        .pageInnerContainerFront{
+          height: 55vh;
+          display: grid;
+          margin: 10% 5%;
+          grid-template-columns: repeat(2, 50%);
+          grid-template-rows: repeat(5, 20%);
+          background-color: white;
+        }
+        
+        .pageInnerContainerBack{
+          height: 55vh;
+          display: grid;
+          margin: 10% 5%;
+          grid-template-columns: repeat(2, 50%);
+          grid-template-rows: repeat(5, 20%);
+          direction: rtl;
+          background-color: white;
+        }
+    
+          .card {
+          @include card;
+    
+          .cardBody {
+            @include cardBody;
+          }
+    
+          .cardFooter {
+            @include cardFooter;
+          }
+        }
+      }
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 1em 2em;
+      background-color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+  }
+}
+
 @media print {
   html {
     height: 90%;
+  }
+
+  .previewLayout {
+    header, 
+    button {
+      display: none;
+    }
   }
 
   .pageInnerContainerFront {

@@ -46,7 +46,7 @@ const Preview = ({ cardStack }: PropsType) => {
     return sortedPages.map((cardPair) => {
        
       return (
-        <div key={uuidv4()}>
+        <div key={uuidv4()} className={styles.preview}>
           {/* page 1 with card fronts */}
           <div className={styles.pageInnerContainerFront} key={uuidv4()}>
             {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={true} />)}
@@ -62,8 +62,16 @@ const Preview = ({ cardStack }: PropsType) => {
   }
   
   return (
-    <div>
-      {generatePages()}
+    <div className={styles.previewLayout}>
+      <header>
+        <h1>Preview</h1>
+        <p>Scroll to see next pages</p>
+      </header>
+      <div className={styles.pageContainer}>
+        {generatePages()}
+      </div>
+
+        <button type="button">Print</button>
     </div>
   )
 }

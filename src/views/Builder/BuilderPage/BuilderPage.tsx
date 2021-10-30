@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ICard } from "types"
 import BuilderForm from "../BuilderForm/BuilderForm"
 import CardList from "../CardList/CardList";
-import { AiOutlineFileSearch, AiOutlineDownload } from "react-icons/ai";
+import { AiOutlineFileSearch, AiOutlineDownload, AiFillCloseCircle } from "react-icons/ai";
 import styles from "../_styles/CardBuilder.module.scss";
 import Preview from "../Preview/Preview";
 
@@ -50,7 +50,12 @@ const BuilderPage = () => {
   return (
     <main className={styles.cardBuilderContainer}>
        {
-        showPreview ? <Preview cardStack={cardStack} /> : ""
+        showPreview ? (
+          <div className={styles.previewContainer}>
+            <AiFillCloseCircle className={styles.modalCloseBtn} onClick={() => togglePreview()} />
+            <Preview cardStack={cardStack} />
+          </div>
+        ) : ""
       }
       <div className={styles.noPrintContainer}>
 
@@ -60,7 +65,7 @@ const BuilderPage = () => {
 
         <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
 
-        <button type="button" className={styles.primaryBtn} onClick={() => togglePreview()}><AiOutlineFileSearch /> Preview</button>
+        <button type="button" className={styles.primaryBtn} onClick={() => togglePreview()}><AiOutlineFileSearch /> Preview and Print</button>
         <button type="button" className={styles.primaryBtn}><AiOutlineDownload /> Download</button>
         
         {cardStack.length > 0 ? <CardList cardStack={cardStack} /> : null}
