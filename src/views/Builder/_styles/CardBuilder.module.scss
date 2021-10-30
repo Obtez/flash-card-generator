@@ -14,6 +14,10 @@
     margin: 0;
     padding: 0;
   }
+
+  .cardItem {
+    color: black;
+  }
 }
 
 @media screen {
@@ -22,14 +26,29 @@
 
   .cardBuilderContainer {
     @include container;
+    min-height: 100vh;
+    margin: 0;
     text-align: center;
+    color: $text-light;
+    background-color: $primary-dark;
+
+    .backLink {
+      color: $text-light;
+    }
+
+    h1 {
+      margin-bottom: 1.5em;
+    }
   }
 
   .primaryBtn {
-    @include button(true);
+    @include button(false);
+    color: $text-light;
     display: block;
+    margin: auto;
+    font-size: 1.2rem;
     padding: .5em 1em;
-    margin-top: 1em
+    margin-top: 2em
   }
 
   .cardBuilderForm {
@@ -39,7 +58,6 @@
 
       label {
         font-size: 1.2rem;
-        margin-bottom: 0.75rem;
       }
 
       .inputGroup {
@@ -52,7 +70,7 @@
         padding: .75em 1em;
         font-size: 1.2rem;
         border: none;
-        border-bottom: 3px solid #ccc;
+        border-radius: 3px;
         position: relative;
       }
 
@@ -65,23 +83,22 @@
       }
 
       input[type=submit] {
-        @include button(true);
-        background-color: $accent;
+        @include formButton
       }
   }
 
   .cardList {
     h2 {
       padding: 1em 0;
-      margin: 1.5em 0;
-      background-color: $primary-light;
+      margin-top: 1em;
     }
   }
 
   .cardItem {
     padding-top: 1.5rem;
-    margin-bottom: 3rem;
-    background-color: $primary;
+    margin-bottom: 1rem;
+    background-color: #0F2A4B;
+    color: #222;
 
     display: flex;
     flex-direction: column;
@@ -98,6 +115,7 @@
 
   // Preview Modal
   .previewContainer {
+    height: 100vh;
     position: fixed;
     top: 0;
     bottom: 0;

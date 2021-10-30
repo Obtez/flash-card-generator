@@ -1,8 +1,10 @@
 import { useState } from "react";
+import {Link} from "react-router-dom";
 import { ICard } from "types"
 import BuilderForm from "../BuilderForm/BuilderForm"
 import CardList from "../CardList/CardList";
-import { AiOutlineFileSearch, AiOutlineDownload, AiFillCloseCircle } from "react-icons/ai";
+import { AiOutlineFileSearch, AiFillCloseCircle } from "react-icons/ai";
+import {IoIosArrowBack} from "react-icons/io"
 import styles from "../_styles/CardBuilder.module.scss";
 import Preview from "../Preview/Preview";
 
@@ -10,7 +12,8 @@ const BuilderPage = () => {
   const [cardStack, setCardStack] = useState<ICard[]>([])
   const [showPreview, setShowPreview] = useState(false)
 
-  // DELETE ME
+
+  //! DEVELOPMENT ONLY
   function MOCKDATA() {
     let DATA: ICard[] = []
 
@@ -24,7 +27,7 @@ const BuilderPage = () => {
 
     setCardStack(DATA)
   }
-  // DELETE ME
+  //! END
 
   function addCardToStack(card: any) {
     if (card.front) {
@@ -49,6 +52,7 @@ const BuilderPage = () => {
 
   return (
     <main className={styles.cardBuilderContainer}>
+    <Link to="/" className={styles.backLink}><IoIosArrowBack /> Back Home</Link>
        {
         showPreview ? (
           <div className={styles.previewContainer}>
@@ -59,15 +63,12 @@ const BuilderPage = () => {
       }
       <div className={styles.noPrintContainer}>
 
-        <h1>CardBuilder</h1>
-
-        <button onClick={MOCKDATA}>MOCK DATA</button>
-
+        <h1>Card Builder</h1>
+        {/* DEVELOPMENT ONLY */}
+        {/* <button onClick={MOCKDATA}>MOCK DATA</button> */}
+        {/* END */}
         <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
-
-        <button type="button" className={styles.primaryBtn} onClick={() => togglePreview()}><AiOutlineFileSearch /> Preview and Print</button>
-        <button type="button" className={styles.primaryBtn}><AiOutlineDownload /> Download</button>
-        
+        <button type="button" className={styles.primaryBtn} onClick={() => togglePreview()}><AiOutlineFileSearch /> Preview and Print</button>        
         {cardStack.length > 0 ? <CardList cardStack={cardStack} /> : null}
 
       </div>

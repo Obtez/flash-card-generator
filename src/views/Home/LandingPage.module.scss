@@ -1,7 +1,7 @@
 @import "../../styles/mixins";
 
 .heroSection {
-  padding: 3rem 1rem;
+  padding: 2rem 1rem;
   text-align: center;
   h1 {
     margin-bottom: 1em;
@@ -31,8 +31,6 @@
 .aboutContainer {
   @include container;
   position: relative;
-  background-color: $text;
-  color: $text-light;
   line-height: 2;
   text-align: center;
 
@@ -55,8 +53,10 @@
 
 .contactContainer {
   @include container;
+  margin-bottom: 0;
   text-align: center;
-
+  background-color: $primary-dark;
+  color: $text-light;
   h2 {
     margin-bottom: 1em;
   }

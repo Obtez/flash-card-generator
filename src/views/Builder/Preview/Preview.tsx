@@ -79,6 +79,7 @@ const Preview = ({ cardStack }: PropsType) => {
         trigger={() => <button type="button">Print</button>}
         content={() => printRef.current}
         documentTitle="Flash Cards"
+        pageStyle="margin: 1.2cm 1cm"
       />
     </div>
   )

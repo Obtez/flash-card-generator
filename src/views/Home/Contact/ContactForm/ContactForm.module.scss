@@ -17,11 +17,10 @@
     padding: .75em 1em;
     font-size: 1.2rem;
     border: none;
-    border-bottom: 3px solid #ccc;
+    border-radius: 3px; 
   }
 
   input[type=submit] {
-    @include button(true);
-    background-color: $accent;
+    @include formButton
   }
 }
