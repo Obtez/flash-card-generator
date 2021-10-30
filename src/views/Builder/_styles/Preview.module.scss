@@ -68,7 +68,7 @@
 
 @media print {
   html {
-    height: 90%;
+    height: 100%;
   }
 
   .previewLayout {
@@ -76,6 +76,7 @@
     button {
       display: none;
     }
+    padding: 1.2cm 1cm;
   }
 
   .pageInnerContainerFront {
