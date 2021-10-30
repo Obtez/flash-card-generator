@@ -2,6 +2,10 @@
 @import "../../../styles/mixins";
 
 @media print {
+  .modalCloseBtn {
+    display: none;
+  }
+
   .noPrintContainer {
     display: none;
   }
@@ -13,6 +17,9 @@
 }
 
 @media screen {
+
+  // Main Section
+
   .cardBuilderContainer {
     @include container;
     text-align: center;
@@ -87,5 +94,29 @@
       @include cardFace;
     
     }
+  }
+
+  // Preview Modal
+  .previewContainer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 5;
+
+    background-color: rgba(0,0,0, .95);
+
+    overflow: scroll;
+
+    .modalCloseBtn {
+      position: sticky;
+      display: block;
+      margin: 16px 16px 16px auto;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.5rem;
+    }
+
   }
 }

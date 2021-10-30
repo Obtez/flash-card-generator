@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import ReactToPrint from "react-to-print";
 import { v4 as uuidv4 } from 'uuid';
 import { ICard } from "types";
 import CardSide from './CardSide';
@@ -8,6 +10,8 @@ interface PropsType {
 }
 
 const Preview = ({ cardStack }: PropsType) => {
+  const printRef = useRef(null);
+  
   let sortedPages: ICard[][] = []
 
    function sortCardsIntoPageArrays() {
@@ -46,7 +50,7 @@ const Preview = ({ cardStack }: PropsType) => {
     return sortedPages.map((cardPair) => {
        
       return (
-        <div key={uuidv4()}>
+        <div key={uuidv4()} className={styles.preview}>
           {/* page 1 with card fronts */}
           <div className={styles.pageInnerContainerFront} key={uuidv4()}>
             {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={true} />)}
@@ -62,8 +66,20 @@ const Preview = ({ cardStack }: PropsType) => {
   }
   
   return (
-    <div>
-      {generatePages()}
+    <div className={styles.previewLayout} ref={printRef}>
+      <header>
+        <h1>Preview</h1>
+        <p>Scroll to see next pages</p>
+      </header>
+      <div className={styles.pageContainer}>
+        {generatePages()}
+      </div>
+
+      <ReactToPrint
+        trigger={() => <button type="button">Print</button>}
+        content={() => printRef.current}
+        documentTitle="Flash Cards"
+      />
     </div>
   )
 }
