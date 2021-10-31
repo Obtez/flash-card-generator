@@ -24,3 +24,13 @@
     @include formButton
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .contactForm {
+    input,
+    textarea {
+      width: 50%;
+      margin: 0 auto 1.25em;
+    }
+  }
+}

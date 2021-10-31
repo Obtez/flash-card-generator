@@ -61,3 +61,62 @@
     margin-bottom: 1em;
   }
 }
+
+// ========================
+// TABLET
+// ========================
+@media screen and (min-width: 768px) {
+  .heroSection {
+    max-width: 570px;
+    margin: auto;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      margin-bottom: .5em;
+    }
+
+    .btnContainer {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .aboutContainer {
+    min-height: 50vh;
+  }
+  
+  .contactContainer {
+    min-height: 75vh;
+  } 
+}
+
+// ========================
+// Desktop
+// ========================
+@media screen and (min-width: 1024px) {
+  .heroSection {
+    max-width: 720px;
+    margin: auto;
+    text-align: start;
+    align-items: start;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .aboutContainer {
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .contactContainer {
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+}

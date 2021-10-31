@@ -49,14 +49,14 @@ const CardForm = ({addCardToStack}: PropsType) => {
   return (
     <form onSubmit={handleSubmit} className={styles.cardBuilderForm}>
 
-      <label htmlFor="front">Front</label>
       <div className={styles.inputGroup}>
+      <label htmlFor="front">Front</label>
         <input type="text" id="front" maxLength={140} value={front} onChange={(e) => setFront(e.target.value)} />
         <small className={styles.charCounter}>{charCountFront}</small>
       </div>
 
-      <label htmlFor="back">Back</label>
       <div className={styles.inputGroup}>
+      <label htmlFor="back">Back</label>
       <input type="text" maxLength={140} id="front" value={back} onChange={(e) => setBack(e.target.value)} />
         <small className={styles.charCounter}>{charCountBack}</small>
       </div>

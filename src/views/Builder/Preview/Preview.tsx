@@ -71,16 +71,17 @@ const Preview = ({ cardStack }: PropsType) => {
         <h1>Preview</h1>
         <p>Scroll to see next pages</p>
       </header>
-      <div className={styles.pageContainer}>
-        {generatePages()}
+      <div className={styles.previewBody}>
+        <div className={styles.pageContainer}>
+          {generatePages()}
+        </div>
+        <ReactToPrint
+          trigger={() => <button type="button">Print</button>}
+          content={() => printRef.current}
+          documentTitle="Flash Cards"
+          pageStyle="margin: 1.2cm 1cm"
+        />
       </div>
-
-      <ReactToPrint
-        trigger={() => <button type="button">Print</button>}
-        content={() => printRef.current}
-        documentTitle="Flash Cards"
-        pageStyle="margin: 1.2cm 1cm"
-      />
     </div>
   )
 }

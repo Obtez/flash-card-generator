@@ -104,37 +104,98 @@
     flex-direction: column;
   
     .cardFront {
-    @include cardFace;
+      @include cardFace;
     }
 
     .cardBack {
       @include cardFace;
-    
     }
   }
 
   // Preview Modal
-  .previewContainer {
-    height: 100vh;
+  .modal {
     position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     right: 0;
-
     z-index: 5;
+    
+    .previewContainer {
+      background-color: rgba(0,0,0, .95);
+      overflow: scroll;
+      height: 100vh;
 
-    background-color: rgba(0,0,0, .95);
+      .modalCloseBtn {
+        position: sticky;
+        display: block;
+        margin: 16px 16px 0 auto;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.5rem;
+      }
+    }
+}
+}
 
-    overflow: scroll;
+@media screen and (min-width: 768px) {
+  .cardBuilderContainer {
+    
+    .modal {
+      .previewContainer {
+  
+        .modalCloseBtn {
+          margin: 24px 24px 0 auto;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
 
-    .modalCloseBtn {
-      position: sticky;
-      display: block;
-      margin: 16px 16px 16px auto;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 1.5rem;
+@media screen and (min-width: 1024px) {
+  .cardBuilderForm {
+    flex-direction: row;
+    .inputGroup {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      margin-bottom: 2rem;
+      width: 33%;
+      
+      label {
+        text-align: left;
+      }
     }
 
+    input[type=submit] {
+      width: 20%;
+      margin: auto;
+    }
+  }
+
+   .cardItem {
+     margin-bottom: 1.9rem;
+     padding: 0;
+     flex-direction: row;
+  }
+
+  .modal {
+    .previewContainer {
+      width: fit-content;
+      margin-left: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cardBuilderForm {
+    width: 960px;
+    margin: auto;
+  }
+
+  .cardItem {
+    width: 900px;
+    margin: auto;
+    margin-bottom: 1.9rem;
   }
 }

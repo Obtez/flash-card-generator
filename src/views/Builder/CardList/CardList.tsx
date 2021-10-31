@@ -6,7 +6,8 @@ interface PropsType {
   cardStack: ICard[]
 }
 
-const CardList = ({cardStack}: PropsType) => {
+const CardList = ({ cardStack }: PropsType) => {
+  
   const cards = cardStack.map(card => {
   return (
     <Card card={card} key={card.id} />
