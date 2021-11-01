@@ -1,122 +1,97 @@
+@import "../../styles/variables";
 @import "../../styles/mixins";
 
-.heroSection {
-  padding: 2rem 1rem;
+.layout {
+  display: grid;
+  grid-template-rows: 85vh 85vh 75vh;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.hero {
+  padding: 5%;
+  display: grid;
+  grid-template-rows: 45% 20% auto;
   text-align: center;
+
   h1 {
-    margin-bottom: 1em;
-    font-size: 2.5rem;
-    font-style: italic;
+    align-self: flex-end;
+    font-size: 3.5rem;
   }
 
   .subheading {
-    font-size: 1.9rem;
-    margin-bottom: 2em;
+    align-self: center;
+    font-size: 2rem;
   }
 
   .btnContainer {
+    align-self: flex-start;
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
+    gap: 1%;
+  }
+
+}
+
+.about {
+  padding: 5%;
+  display: grid;
+  grid-template-rows: 30% auto;
+
+  header {
+    align-self: center;
+  }
+
+  p {
+    line-height: 2;
   }
 }
 
-.primaryBtn {
-  @include button(true);
-}
-
-.secondaryBtn {
-  @include button(false)
-}
-
-.aboutContainer {
-  @include container;
-  position: relative;
-  line-height: 2;
-  text-align: center;
-
-  h2 {
-    margin-bottom: 1.2em;
-  }
-
-   p {
-    margin-bottom: .75em;
-
-    &:nth-of-type(2) {
-      font-size: 1.5rem;
-    }
-
-    &:nth-last-of-type(1) {
-      font-size: 1.5rem;
-    }
-  }
-}
-
-.contactContainer {
-  @include container;
-  margin-bottom: 0;
-  text-align: center;
+.contact {
+  padding: 0 20%;
+  display: grid;
+  grid-template-rows: 30% auto;
+  gap: 2%;
   background-color: $primary-dark;
   color: $text-light;
-  h2 {
-    margin-bottom: 1em;
+  header {
+    align-self: center;
+  }
+
+  .formContainer {
+    width: 100%;
   }
 }
 
-// ========================
-// TABLET
-// ========================
 @media screen and (min-width: 768px) {
-  .heroSection {
-    max-width: 570px;
-    margin: auto;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    h1 {
-      margin-bottom: .5em;
+  .layout {
+    h2 {
+      text-align: start;
     }
-
-    .btnContainer {
-      flex-direction: row;
-      justify-content: center;
-    }
-  }
-
-  .aboutContainer {
-    min-height: 50vh;
   }
   
-  .contactContainer {
-    min-height: 75vh;
-  } 
-}
-
-// ========================
-// Desktop
-// ========================
-@media screen and (min-width: 1024px) {
-  .heroSection {
-    max-width: 720px;
-    margin: auto;
+  .hero {
+    padding: 0 10%;
+    grid-template-rows: 45% 10% auto;
     text-align: start;
-    align-items: start;
 
-    h1 {
-      font-size: 3rem;
+    .btnContainer {
+      flex-flow: row wrap;
     }
   }
 
-  .aboutContainer {
-    h2 {
-      font-size: 2.5rem;
-    }
+  .about {
+    padding: 0 10%;
+    max-width: 960px;
+    margin: auto;
   }
 
-  .contactContainer {
-    h2 {
-      font-size: 2.5rem;
+  .contact {
+    .formContainer {
+      width: 90%;
+      max-width: 560px;
     }
   }
 }

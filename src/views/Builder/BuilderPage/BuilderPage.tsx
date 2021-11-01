@@ -7,6 +7,7 @@ import { AiOutlineFileSearch, AiFillCloseCircle } from "react-icons/ai";
 import {IoIosArrowBack} from "react-icons/io"
 import styles from "../_styles/CardBuilder.module.scss";
 import Preview from "../Preview/Preview";
+import Button from "components/Button/Button";
 
 const BuilderPage = () => {
   const [cardStack, setCardStack] = useState<ICard[]>(() => {
@@ -27,22 +28,6 @@ const BuilderPage = () => {
       setCardStack(cards)
     } 
   }, [showPreview])
-
-  //! DEVELOPMENT ONLY
-  function MOCKDATA() {
-    let DATA: ICard[] = []
-
-    while (DATA.length < 20) {
-      DATA.push({
-        id: `${DATA.length + 1}`,
-        front: `f${DATA.length + 1}`,
-        back: `b${DATA.length + 1}`
-      })
-    }
-
-    setCardStack(DATA)
-  }
-  //! END
 
   async function addCardToStack(card: any) {
     if (card.front) {
@@ -67,35 +52,33 @@ const BuilderPage = () => {
     setShowPreview(!showPreview)
   }
 
-
-
   return (
-    <main className={styles.cardBuilderContainer}>
-    <Link to="/" className={styles.backLink}><IoIosArrowBack /> Back Home</Link>
-      
-      <div className={styles.noPrintContainer}>
+    <div className={styles.cardBuilder}>
 
+      <header>
+        <Link to="/" className={styles.backLink}><IoIosArrowBack /> Back Home</Link>
         <h1>Card Builder</h1>
-        {/* DEVELOPMENT ONLY */}
-        {/* <button onClick={MOCKDATA}>MOCK DATA</button> */}
-        {/* END */}
+      </header>
+      
+      <main>
+      
         <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
-        <button type="button" className={styles.primaryBtn} onClick={() => togglePreview()}><AiOutlineFileSearch /> Preview and Print</button>        
+        <Button type="button" onClick={() => togglePreview()}>Preview and Print</Button>
         {cardStack.length > 0 ? <CardList cardStack={cardStack} /> : null}
-
-      </div>
-
+    
        {
-        showPreview ? (
-          <div className={styles.modal}>
-            <div className={styles.previewContainer}>
-              <AiFillCloseCircle className={styles.modalCloseBtn} onClick={() => togglePreview()} />
-              <Preview cardStack={cardStack} />
-            </div>
+      showPreview ? (
+        <div className={styles.modal}>
+          <div className={styles.previewContainer}>
+            <AiFillCloseCircle className={styles.modalCloseBtn} onClick={() => togglePreview()} />
+            <Preview cardStack={cardStack} />
           </div>
-        ) : ""
+        </div>
+      ) : ""
       }
-    </main>
+        
+     </main>
+    </div>
   )
 }
 

@@ -1,13 +1,15 @@
+import Button from "components/Button/Button";
+import LinkButton from "components/LinkButton/LinkButton";
 import styles from "../LandingPage.module.scss";
 
 const Hero = () => {
   return (
-    <header className={styles.heroSection}>
+    <header className={styles.hero}>
       <h1>flashy</h1>
       <p className={styles.subheading}>Create flash cards - lightning fast</p>
       <div className={styles.btnContainer}>
-        <a href="/build" className={styles.primaryBtn}>Try it out!</a>
-        <a href="#about" className={styles.secondaryBtn}>Find out more</a>
+        <LinkButton href="/build" type="primary">Try it out!</LinkButton>
+        <LinkButton href="#about" type="secondary">Find out more</LinkButton>
       </div>
     </header>
   )

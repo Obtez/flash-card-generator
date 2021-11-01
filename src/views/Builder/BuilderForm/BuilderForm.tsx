@@ -1,3 +1,7 @@
+import FormGroup from "components/forms/FormGroup/FormGroup";
+import FormLabel from "components/forms/FormLabel/FormLabel";
+import FormInput from "components/forms/FormInput/FormInput";
+import SubmitButton from "components/forms/SubmitButton/SubmitButton";
 import { FormEvent, useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { ICard } from "types";
@@ -8,48 +12,74 @@ interface PropsType {
 }
 
 const CardForm = ({addCardToStack}: PropsType) => {
-  const [front, setFront] = useState("")
-  const [back, setBack] = useState("")
+  const [newCard, setNewCard] = useState<ICard>({
+    id: "",
+    front: "",
+    back: ""
+  })
 
   const [charCountFront, setCharCountFront] = useState(140)
   const [charCountBack, setCharCountBack] = useState(140)
 
   useEffect(() => {
-    setCharCountFront(140 - front.length)
-    setCharCountBack(140-back.length)
-  }, [front, back])
+    setCharCountFront(140 - newCard.front.length)
+    setCharCountBack(140- newCard.back.length)
+  }, [newCard])
+
+  function updateInputValue(property: string, value: string) {
+    setNewCard({
+      ...newCard,
+      [property]: value
+    })
+  }
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
 
-    if (!front) {
-      // caution message
-    }
-
-    if (!back) {
-      // caution message
-    }
-
-    if (!front && !back) {
-      return null
-    }
-
     const card: ICard = {
-      id: uuidv4(),
-      front,
-      back
+      ...newCard,
+      id: uuidv4()
     }
 
     addCardToStack(card)
 
-    setFront("")
-    setBack("")
+    setNewCard({
+      id: "",
+      front: "",
+      back: ""
+    })
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.cardBuilderForm}>
+    <form onSubmit={handleSubmit} className={styles.formContainer}>
 
-      <div className={styles.inputGroup}>
+      <FormGroup>
+        <FormLabel inputID="front">Front</FormLabel>
+        <FormInput
+          type="text"
+          name="front"
+          id="front"
+          value={newCard.front}
+          required={false}
+          onChange={updateInputValue}
+        />
+      </FormGroup>
+
+       <FormGroup>
+        <FormLabel inputID="back">Back</FormLabel>
+        <FormInput
+          type="text"
+          name="back"
+          id="back"
+          value={newCard.back}
+          required={false}
+          onChange={updateInputValue}
+        />
+      </FormGroup>
+
+      <SubmitButton>Add</SubmitButton>
+
+      {/* <div className={styles.inputGroup}>
       <label htmlFor="front">Front</label>
         <input type="text" id="front" maxLength={140} value={front} onChange={(e) => setFront(e.target.value)} />
         <small className={styles.charCounter}>{charCountFront}</small>
@@ -61,7 +91,7 @@ const CardForm = ({addCardToStack}: PropsType) => {
         <small className={styles.charCounter}>{charCountBack}</small>
       </div>
 
-      <input type="submit" value="Add" />
+      <input type="submit" value="Add" /> */}
 
     </form>
   )

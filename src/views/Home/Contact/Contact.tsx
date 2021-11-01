@@ -3,9 +3,13 @@ import styles from "../LandingPage.module.scss";
 
 const Contact = () => {
   return (
-    <section className={styles.contactContainer}>
-      <h2>Contact</h2>
-      <ContactForm />
+    <section className={styles.contact}>
+      <header>
+        <h2>Contact</h2>
+      </header>
+        <div className={styles.formContainer}>
+          <ContactForm />
+        </div>
     </section>
   )
 }

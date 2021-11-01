@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+
+.btn {
+  width: 100%;
+  margin: 1em 0;
+  padding: 1em 1.5em;
+  font-weight: 700;
+}
+
+.primary {
+  border: none;
+  border-radius: 3px;
+  color: $text-light;
+  background-color: $primary;
+}
+
+.secondary {
+  text-decoration: underline;
+}

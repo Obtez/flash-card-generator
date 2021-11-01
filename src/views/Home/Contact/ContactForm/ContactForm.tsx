@@ -1,13 +1,16 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import styles from "./ContactForm.module.scss";
+import FormGroup from "components/forms/FormGroup/FormGroup";
+import FormLabel from "components/forms/FormLabel/FormLabel";
+import FormInput from "components/forms/FormInput/FormInput";
+import FormTextArea from "components/forms/FormTextArea/FormTextArea";
+import SubmitButton from "components/forms/SubmitButton/SubmitButton";
+import { FormEvent, useState } from "react";
+import styles from "../../../../components/forms/Form.module.scss";
 
 interface Message {
   name: string,
   email: string,
   message: string
 }
-
-type ContactFormEvent = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
 
 const ContactForm = () => {
   const [messageDetails, setMessageDetails] = useState<Message>({
@@ -16,42 +19,59 @@ const ContactForm = () => {
     message: "",
   })
 
-  function handleChange(e: ContactFormEvent) {
-    if (!e.target.name) {
-      return null
-    }
-
-    if (!e.target.value) {
-      return null
-    }
-
+  function updateInputValue(property: string, value: string) {
     setMessageDetails({
       ...messageDetails,
-      [e.target.name]: e.target.value
+      [property]: value
     })
   }
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
-
-    console.log("name", messageDetails.name);
-    console.log("email", messageDetails.email);
-    console.log("message", messageDetails.message);
+    setMessageDetails({
+      name: "",
+      email: "",
+      message: ""
+    })
   }
 
   return (
-    <form className={styles.contactForm} onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input type="text" id="name" name="name" required onChange={(e) => handleChange(e)} />
+    <form className={styles.formContainer} onSubmit={handleSubmit}>
+      <FormGroup>
+        <FormLabel inputID="name">Name</FormLabel>
+        <FormInput
+          type="text"
+          name="name"
+          id="name"
+          value={messageDetails.name}
+          required={true}
+          onChange={updateInputValue}
+        />
+      </FormGroup>
 
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" name="email" required onChange={(e) => handleChange(e)} />
-      
+      <FormGroup>
+        <FormLabel inputID="email">Email</FormLabel>
+        <FormInput
+          type="email"
+          name="email"
+          id="email"
+          value={messageDetails.email}
+          required={true}
+          onChange={updateInputValue}
+        />
+      </FormGroup>
 
-      <label htmlFor="message">Message</label>
-      <textarea name="message" id="message" required onChange={(e) => handleChange(e)}></textarea>
+      <FormGroup>
+        <FormLabel inputID="message">Message</FormLabel>
+        <FormTextArea
+          name="message"
+          id="message"
+          value={messageDetails.message}
+          required={true}
+          onChange={updateInputValue} />
+      </FormGroup>
 
-      <input type="submit" value="Send" />
+      <SubmitButton>Send</SubmitButton>
     </form>
   )
 }
