@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import { ICard } from "types"
 import BuilderForm from "../BuilderForm/BuilderForm"
 import CardList from "../CardList/CardList";
-import { AiOutlineFileSearch, AiFillCloseCircle } from "react-icons/ai";
 import {IoIosArrowBack} from "react-icons/io"
 import styles from "../_styles/CardBuilder.module.scss";
 import Preview from "../Preview/Preview";
@@ -70,8 +69,7 @@ const BuilderPage = () => {
       showPreview ? (
         <div className={styles.modal}>
           <div className={styles.previewContainer}>
-            <AiFillCloseCircle className={styles.modalCloseBtn} onClick={() => togglePreview()} />
-            <Preview cardStack={cardStack} />
+            <Preview cardStack={cardStack} togglePreview={togglePreview} />
           </div>
         </div>
       ) : ""

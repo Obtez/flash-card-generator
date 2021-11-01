@@ -61,7 +61,20 @@
       border-radius: 8px;
       margin-bottom: 20px;
     }
+  }
 
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+
+    .previewContainer {
+      background-color: rgba(0,0,0,0.95);
+      height: 100%;
+    }
   }
 }
 

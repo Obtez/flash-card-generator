@@ -18,13 +18,6 @@ const CardForm = ({addCardToStack}: PropsType) => {
     back: ""
   })
 
-  const [charCountFront, setCharCountFront] = useState(140)
-  const [charCountBack, setCharCountBack] = useState(140)
-
-  useEffect(() => {
-    setCharCountFront(140 - newCard.front.length)
-    setCharCountBack(140- newCard.back.length)
-  }, [newCard])
 
   function updateInputValue(property: string, value: string) {
     setNewCard({

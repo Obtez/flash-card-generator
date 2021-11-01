@@ -1,15 +1,18 @@
 import { useRef } from "react";
+import Button from "components/Button/Button";
 import ReactToPrint from "react-to-print";
 import { v4 as uuidv4 } from 'uuid';
+import { AiFillCloseCircle } from "react-icons/ai";
 import { ICard } from "types";
 import CardSide from './CardSide';
 import styles from "../_styles/Preview.module.scss";
 
 interface PropsType {
   cardStack: ICard[]
+  togglePreview: () => void
 }
 
-const Preview = ({ cardStack }: PropsType) => {
+const Preview = ({ cardStack, togglePreview }: PropsType) => {
   const printRef = useRef(null);
   
   let sortedPages: ICard[][] = []
@@ -68,6 +71,7 @@ const Preview = ({ cardStack }: PropsType) => {
   return (
     <div className={styles.previewLayout} ref={printRef}>
       <header>
+        <AiFillCloseCircle className={styles.modalCloseBtn} onClick={() => togglePreview()} />
         <h1>Preview</h1>
         <p>Scroll to see next pages</p>
       </header>
@@ -76,7 +80,7 @@ const Preview = ({ cardStack }: PropsType) => {
           {generatePages()}
         </div>
         <ReactToPrint
-          trigger={() => <button type="button">Print</button>}
+          trigger={() => <Button type="button">Print</Button>}
           content={() => printRef.current}
           documentTitle="Flash Cards"
           pageStyle="margin: 1.2cm 1cm"
