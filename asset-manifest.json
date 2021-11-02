@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/flash-card-generator/static/css/main.2288ada0.chunk.css",
+    "main.js": "/flash-card-generator/static/js/main.dd8afd90.chunk.js",
+    "main.js.map": "/flash-card-generator/static/js/main.dd8afd90.chunk.js.map",
+    "runtime-main.js": "/flash-card-generator/static/js/runtime-main.7065b60f.js",
+    "runtime-main.js.map": "/flash-card-generator/static/js/runtime-main.7065b60f.js.map",
+    "static/js/2.42043144.chunk.js": "/flash-card-generator/static/js/2.42043144.chunk.js",
+    "static/js/2.42043144.chunk.js.map": "/flash-card-generator/static/js/2.42043144.chunk.js.map",
+    "index.html": "/flash-card-generator/index.html",
+    "static/css/main.2288ada0.chunk.css.map": "/flash-card-generator/static/css/main.2288ada0.chunk.css.map",
+    "static/js/2.42043144.chunk.js.LICENSE.txt": "/flash-card-generator/static/js/2.42043144.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7065b60f.js",
+    "static/js/2.42043144.chunk.js",
+    "static/css/main.2288ada0.chunk.css",
+    "static/js/main.dd8afd90.chunk.js"
+  ]
+}
