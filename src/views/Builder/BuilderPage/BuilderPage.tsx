@@ -7,6 +7,7 @@ import {IoIosArrowBack} from "react-icons/io"
 import styles from "../_styles/CardBuilder.module.scss";
 import Preview from "../Preview/Preview";
 import Button from "components/Button/Button";
+import EditModal from "../EditModal/EditModal";
 
 const BuilderPage = () => {
   const [cardStack, setCardStack] = useState<ICard[]>(() => {
@@ -19,6 +20,12 @@ const BuilderPage = () => {
     }
   })
   const [showPreview, setShowPreview] = useState(false)
+  const [showEdit, setShowEdit] = useState(false)
+  const [cardToEdit, setCardToEdit] = useState({
+    id: "",
+    front: "",
+    back: ""
+  })
 
   useEffect(() => {
     const stored = localStorage.getItem("cards")
@@ -26,18 +33,9 @@ const BuilderPage = () => {
       const cards = JSON.parse(stored)
       setCardStack(cards)
     } 
-  }, [showPreview])
+  }, [showPreview, showEdit])
 
   async function addCardToStack(card: any) {
-    if (card.front) {
-    }
-
-    if (card.back) {
-    }
-
-    if (!card.front && !card.back) {
-    }
-
     if (cardStack.length === 0) {
       setCardStack([card])
     }
@@ -45,6 +43,46 @@ const BuilderPage = () => {
     const updatedStack = [...cardStack, card]
     localStorage.setItem("cards", JSON.stringify(updatedStack))
     setCardStack(updatedStack)
+  }
+
+  function deleteCard(id: string) {
+    const filteredStack = cardStack.filter(c => c.id !== id)
+    localStorage.setItem("cards", JSON.stringify(filteredStack))
+    setCardStack([...filteredStack])
+  }
+
+  function populateEditModal(id: string, isOpen: boolean) {
+    toggleEdit(isOpen)
+
+    const tempCardStack = cardStack
+    const index = tempCardStack.findIndex(c => c.id === id)
+    setCardToEdit(tempCardStack[index])
+  }
+
+   function toggleEdit(isOpen: boolean) {
+    if (isOpen) {
+      setShowEdit(false)
+    } else {
+      setShowEdit(true)
+    }
+   }
+  
+  function updateCardStack(card: ICard, isOpen: boolean) {
+    toggleEdit(isOpen)
+
+   
+    const tempCardStack = cardStack
+    const index = tempCardStack.findIndex(c => c.id === card.id)
+    tempCardStack[index] = card
+    setCardStack(tempCardStack)
+
+    localStorage.setItem("cards", JSON.stringify(tempCardStack))
+
+    setCardToEdit({
+      id: "",
+      front: "",
+      back: ""
+    })
   }
 
   function togglePreview() {
@@ -62,8 +100,8 @@ const BuilderPage = () => {
       <main>
       
         <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
-        <Button type="button" onClick={() => togglePreview()}>Preview and Print</Button>
-        {cardStack.length > 0 ? <CardList cardStack={cardStack} /> : null}
+        <span className={styles.previewBtn}><Button type="button" onClick={() => togglePreview()}>Preview and Print</Button></span>
+        {cardStack.length > 0 ? <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal} /> : null}
     
        {
       showPreview ? (
@@ -73,8 +111,11 @@ const BuilderPage = () => {
           </div>
         </div>
       ) : ""
-      }
+        }
         
+        {
+          showEdit ? <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack} /> : null
+        }
      </main>
     </div>
   )

@@ -35,6 +35,14 @@
         font-weight: 300;
       }
     }
+
+    .checkboxFormGroup {
+      color: $text-light;
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 2%;
+      align-items: baseline;
+    }
     
     .pageContainer {
       height: 60vh;
@@ -52,6 +60,10 @@
     
           .card {
             @include card;
+
+            .withBorder {
+              border: .5px dashed rgba(0,0,0, .1);
+            }
     
           .cardBody {
             @include cardBody;
@@ -117,12 +129,17 @@
   .pageInnerContainerFront {
     @include pageInside(ltr)
   }
+
   
   .card {
     @include card;
-    
+        
     .cardBody {
       @include cardBody;
+    }
+
+    .withBorder {
+      border: .5px dashed rgba(0,0,0, .1);
     }
 
     .cardFooter {

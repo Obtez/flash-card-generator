@@ -2,7 +2,7 @@ import { ChangeEvent } from "react"
 import styles from "../Form.module.scss"
 
 interface FormInputTypes {
-  type: "text" | "email" | "tel" | "password"
+  type: "text" | "email" | "tel" | "checkbox"
   name: string
   id: string
   value: string

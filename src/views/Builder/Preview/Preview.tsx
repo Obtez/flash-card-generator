@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useState, useEffect, useRef, ChangeEvent } from "react";
+import FormLabel from "components/forms/FormLabel/FormLabel";
 import Button from "components/Button/Button";
 import ReactToPrint from "react-to-print";
 import { v4 as uuidv4 } from 'uuid';
@@ -12,8 +13,24 @@ interface PropsType {
   togglePreview: () => void
 }
 
-const Preview = ({ cardStack, togglePreview }: PropsType) => {
+const Preview = ({ togglePreview }: PropsType) => {
+  const [cardStack, setCardStack] = useState<ICard[]>([])
+  const [withBorder, setWithBorder] = useState(false)
   const printRef = useRef(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("cards")
+    if (stored !== null) {
+      const cards = JSON.parse(stored)
+      setCardStack(cards)
+    } 
+  }, [withBorder])
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    if (e.target.name === "showBorder") {
+      setWithBorder(!withBorder)
+    }
+  }
   
   let sortedPages: ICard[][] = []
 
@@ -56,12 +73,12 @@ const Preview = ({ cardStack, togglePreview }: PropsType) => {
         <div key={uuidv4()} className={styles.preview}>
           {/* page 1 with card fronts */}
           <div className={styles.pageInnerContainerFront} key={uuidv4()}>
-            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={true} />)}
+            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={true} withBorder={withBorder} />)}
           </div>
 
           {/* page 2 with card backs */}
           <div className={styles.pageInnerContainerBack} key={ uuidv4()}>
-            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={false} />)}
+            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={false} withBorder={withBorder} />)}
           </div>
         </div>
       )
@@ -79,6 +96,12 @@ const Preview = ({ cardStack, togglePreview }: PropsType) => {
         <div className={styles.pageContainer}>
           {generatePages()}
         </div>
+
+          <span className={styles.checkboxFormGroup}>
+            <input type="checkbox" name="showBorder" onChange={handleChange} />
+            <FormLabel inputID="front">Show Border</FormLabel>
+          </span>
+
         <ReactToPrint
           trigger={() => <Button type="button">Print</Button>}
           content={() => printRef.current}

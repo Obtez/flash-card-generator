@@ -47,6 +47,17 @@
     flex-flow: column nowrap;
     align-items: center;
     margin-bottom: 40px;
+
+    .deleteIcon {
+      color: $text-light;
+      align-self: flex-end;
+      font-size: 1.2rem;
+      cursor: pointer;
+
+      &:hover {
+        color:red;
+      }
+    }
     
     .cardFront,
     .cardBack {
@@ -60,6 +71,18 @@
       align-items: center;
       border-radius: 8px;
       margin-bottom: 20px;
+      position: relative;
+
+      .editIcon {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        color: $text;
+        font-size: 1.1rem;
+        &:hover {
+          color: $accent;
+        }
+      }
     }
   }
 
@@ -76,184 +99,52 @@
       height: 100%;
     }
   }
+
+  .editModal {
+    background-color: rgba(0,0,0,.95);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    padding: 5%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    z-index: 10;
+  }
 }
 
-// @media screen {
+@media screen and (min-width: 768px) {
+  .cardBuilder {
+    text-align: start;
+    header {
+      text-align: start;
+    }
 
-//   // Main Section
+   main { 
+     .previewBtn {
+      display: block;
+      width: 33%;
+      max-width: 20vw;
+    }
+  }
+  }
+  .formContainer {
+    width: 90%;
+    max-width: 560px;
+  }
 
-//   .cardBuilderContainer {
-//     @include container;
-//     min-height: 100vh;
-//     margin: 0;
-//     text-align: center;
-//     color: $text-light;
-//     background-color: $primary-dark;
+  .cardItem {
+    flex-flow: row nowrap;
+    gap: 1%;
+  }
 
-//     .backLink {
-//       color: $text-light;
-//     }
-
-//     h1 {
-//       margin-bottom: 1.5em;
-//     }
-//   }
-
-//   .primaryBtn {
-//     @include button(false);
-//     color: $text-light;
-//     display: block;
-//     margin: auto;
-//     font-size: 1.2rem;
-//     padding: .5em 1em;
-//     margin-top: 2em
-//   }
-
-//   .cardBuilderForm {
-//     display: flex;
-//       flex-direction: column;
-//       padding: 0 2rem;
-
-//       label {
-//         font-size: 1.2rem;
-//       }
-
-//       .inputGroup {
-//         position: relative;
-//         margin-bottom: 1.25em;
-//       }
-
-//       input {
-//         width: 100%;
-//         padding: .75em 1em;
-//         font-size: 1.2rem;
-//         border: none;
-//         border-radius: 3px;
-//         position: relative;
-//       }
-
-//       .charCounter {
-//         position: absolute;
-//         bottom: 0;
-//         right: 5px;
-//         z-index: 2;
-//         color: $text-muted;
-//       }
-
-//       input[type=submit] {
-//         @include formButton
-//       }
-//   }
-
-//   .cardList {
-//     h2 {
-//       padding: 1em 0;
-//       margin-top: 1em;
-//     }
-//   }
-
-//   .cardItem {
-//     padding-top: 1.5rem;
-//     margin-bottom: 1rem;
-//     background-color: #0F2A4B;
-//     color: #222;
-
-//     display: flex;
-//     flex-direction: column;
-  
-//     .cardFront {
-//       @include cardFace;
-//     }
-
-//     .cardBack {
-//       @include cardFace;
-//     }
-//   }
-
-//   // Preview Modal
-//   .modal {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     bottom: 0;
-//     right: 0;
-//     z-index: 5;
-    
-//     .previewContainer {
-//       background-color: rgba(0,0,0, .95);
-//       overflow: scroll;
-//       height: 100vh;
-
-//       .modalCloseBtn {
-//         position: sticky;
-//         display: block;
-//         margin: 16px 16px 0 auto;
-//         color: rgba(255, 255, 255, 0.8);
-//         font-size: 1.5rem;
-//       }
-//     }
-// }
-// }
-
-// @media screen and (min-width: 768px) {
-//   .cardBuilderContainer {
-    
-//     .modal {
-//       .previewContainer {
-  
-//         .modalCloseBtn {
-//           margin: 24px 24px 0 auto;
-//           font-size: 2rem;
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (min-width: 1024px) {
-//   .cardBuilderForm {
-//     flex-direction: row;
-//     .inputGroup {
-//       display: flex;
-//       flex-direction: column;
-//       margin: auto;
-//       margin-bottom: 2rem;
-//       width: 33%;
-      
-//       label {
-//         text-align: left;
-//       }
-//     }
-
-//     input[type=submit] {
-//       width: 20%;
-//       margin: auto;
-//     }
-//   }
-
-//    .cardItem {
-//      margin-bottom: 1.9rem;
-//      padding: 0;
-//      flex-direction: row;
-//   }
-
-//   .modal {
-//     .previewContainer {
-//       width: fit-content;
-//       margin-left: auto;
-//     }
-//   }
-// }
-
-// @media screen and (min-width: 1200px) {
-//   .cardBuilderForm {
-//     width: 960px;
-//     margin: auto;
-//   }
-
-//   .cardItem {
-//     width: 900px;
-//     margin: auto;
-//     margin-bottom: 1.9rem;
-//   }
-// }
+  .cardFront,
+  .cardBack {
+    width: 33vw;
+    max-width: 320px;
+    height: calc(33vw * 2/3);
+    max-height: calc(320px * 2/3);
+  }
+}

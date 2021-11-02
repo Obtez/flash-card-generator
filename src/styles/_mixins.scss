@@ -96,7 +96,6 @@
 }
 
 @mixin card {
-  border: .5px dashed rgba(0,0,0, .1);
   display: flex;
   hyphens: auto;
   flex-direction: column;
