@@ -73,6 +73,15 @@
       margin-bottom: 20px;
       position: relative;
 
+      .cardFooter {
+        position: absolute;
+        border-top: 1px solid black;
+        bottom: 0;
+        width: 100%;
+        padding: .5rem 1rem;
+        text-align: end;
+      }
+
       .editIcon {
         position: absolute;
         top: 16px;
