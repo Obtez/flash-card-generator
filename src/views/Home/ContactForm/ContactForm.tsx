@@ -4,7 +4,7 @@ import FormInput from "components/forms/FormInput/FormInput";
 import FormTextArea from "components/forms/FormTextArea/FormTextArea";
 import SubmitButton from "components/forms/SubmitButton/SubmitButton";
 import { FormEvent, useState } from "react";
-import styles from "../../../../components/forms/Form.module.scss";
+import styles from "../../../components/forms/Form.module.scss";
 
 interface Message {
   name: string,

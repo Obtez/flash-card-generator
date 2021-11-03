@@ -1,121 +1,6 @@
 @import "../../../styles/variables";
 @import "../../../styles/mixins";
 
-@media screen {
-  .previewLayout {
-    @media screen and (max-width: 1199px) {
-      @include container;
-      padding: 1rem 1.5rem;
-    }
-    color: #222;
-    padding-top: 1rem;
-    padding-bottom: 0;
-    position: relative;
-
-    .modalCloseBtn {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin-top: 16px;
-      margin-right: 16px;
-      color: $text-light;
-      font-size: 1.3rem;
-    }
-
-    header {
-
-      h1 {
-        color: $text-light;
-        margin-bottom: 0rem;
-        text-align: center;
-      }
-
-      p {
-        color: $text-light;
-        font-size: 1.2rem;
-        font-weight: 300;
-        text-align: center;
-      }
-    }
-
-    .checkboxFormGroup {
-      color: $text-light;
-      display: flex;
-      flex-flow: row nowrap;
-      gap: 2%;
-      align-items: baseline;
-    }
-    
-    .pageContainer {
-      height: 60vh;
-      overflow: scroll;
-    
-      .preview {
-      
-        .pageInnerContainerFront{
-          @include pageInside(ltr)
-        }
-        
-        .pageInnerContainerBack{
-          @include pageInside(rtl)
-        }
-    
-          .card {
-            @include card;
-
-            .withBorder {
-              border: .5px dashed rgba(0,0,0, .1);
-            }
-    
-          .cardBody {
-            @include cardBody;
-          }
-    
-          .cardFooter {
-            @include cardFooter;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .previewLayout {
-    padding-top: 2rem;
-
-    header {
-
-      p {
-        margin-bottom: 3rem;
-      }
-    }
-
-    button {
-      margin-top: 3rem;
-      padding: 1em 2em;
-      font-size: 1.2rem;
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .previewLayout {
-    .previewBody {
-      width: 560px;
-      margin: auto;
-      
-      .pageContainer {
-        flex-grow: 1
-      }
-
-      button {
-        margin-top: auto;
-      }
-    }
-  }
-}
-
 @media print {
   html {
     height: 100%;
@@ -138,6 +23,17 @@
         
     .cardBody {
       @include cardBody;
+
+      position: relative;
+
+      small {
+        position: absolute;
+        padding: .5rem 1rem;
+        text-align: end;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid #555;
+      }
     }
 
     .withBorder {

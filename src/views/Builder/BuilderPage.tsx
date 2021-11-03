@@ -53,6 +53,10 @@ const BuilderPage = () => {
     setCardStack([...filteredStack])
   }
 
+  async function deleteAllCards() {
+      setCardStack([])
+  }
+
   function populateEditModal(id: string, isOpen: boolean) {
     toggleEdit(isOpen)
 
@@ -105,6 +109,7 @@ const BuilderPage = () => {
       
         <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
         <span className={styles.previewBtn}><Button type="button" onClick={() => togglePreview()}>Preview and Print</Button></span>
+        <span><Button type="button" onClick={deleteAllCards}>Delete all Cards</Button></span>
         {cardStack.length > 0 ? <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal} /> : null}
     
        {

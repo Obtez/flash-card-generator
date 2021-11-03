@@ -1,8 +1,8 @@
-import Hero from "../Hero/Hero";
-import About from "../About/About";
-import Contact from "../Contact/Contact";
+import Hero from "./Hero";
+import About from "./About";
+import Contact from "./Contact";
 
-import styles from "../LandingPage.module.scss"
+import styles from "./LandingPage.module.scss"
 
 const HomePage = () => {
   return (

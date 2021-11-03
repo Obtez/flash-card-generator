@@ -1,6 +1,5 @@
-import Button from "components/Button/Button";
 import LinkButton from "components/LinkButton/LinkButton";
-import styles from "../LandingPage.module.scss";
+import styles from "./LandingPage.module.scss";
 
 const Hero = () => {
   return (
