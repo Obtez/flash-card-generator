@@ -24,7 +24,9 @@ const BuilderPage = () => {
   const [cardToEdit, setCardToEdit] = useState({
     id: "",
     front: "",
-    back: ""
+    back: "",
+    footerFront: "",
+    footerBack: ""
   })
 
   useEffect(() => {
@@ -81,7 +83,9 @@ const BuilderPage = () => {
     setCardToEdit({
       id: "",
       front: "",
-      back: ""
+      back: "",
+      footerFront: "",
+      footerBack: ""
     })
   }
 

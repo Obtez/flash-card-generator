@@ -15,7 +15,9 @@ const CardForm = ({addCardToStack}: PropsType) => {
   const [newCard, setNewCard] = useState<ICard>({
     id: "",
     front: "",
-    back: ""
+    back: "",
+    footerFront: "",
+    footerBack: ""
   })
 
 
@@ -39,7 +41,9 @@ const CardForm = ({addCardToStack}: PropsType) => {
     setNewCard({
       id: "",
       front: "",
-      back: ""
+      back: "",
+      footerFront: "",
+      footerBack: ""
     })
   }
 
@@ -64,6 +68,30 @@ const CardForm = ({addCardToStack}: PropsType) => {
           name="back"
           id="back"
           value={newCard.back}
+          required={false}
+          onChange={updateInputValue}
+        />
+      </FormGroup>
+
+      <FormGroup>
+        <FormLabel inputID="footerFront">Footer Front</FormLabel>
+        <FormInput
+          type="text"
+          name="footerFront"
+          id="footerFront"
+          value={newCard.footerFront}
+          required={false}
+          onChange={updateInputValue}
+        />
+      </FormGroup>
+
+      <FormGroup>
+        <FormLabel inputID="footerFront">Footer Back</FormLabel>
+        <FormInput
+          type="text"
+          name="footerBack"
+          id="footerBack"
+          value={newCard.footerBack}
           required={false}
           onChange={updateInputValue}
         />

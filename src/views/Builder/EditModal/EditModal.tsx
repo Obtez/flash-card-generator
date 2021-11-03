@@ -15,7 +15,9 @@ const EditModal = ({cardToEdit, updateCardStack}: PropTypes) => {
   const [editValues, setEditValues] = useState({
     id: cardToEdit.id,
     front: cardToEdit.front,
-    back: cardToEdit.back
+    back: cardToEdit.back,
+    footerFront: cardToEdit.footerFront,
+    footerBack: cardToEdit.footerBack
   })
 
   function updateInputValue(property: string, value: string) {
@@ -34,7 +36,9 @@ const EditModal = ({cardToEdit, updateCardStack}: PropTypes) => {
     setEditValues({
       id: "",
       front: "",
-      back: ""
+      back: "",
+      footerFront: "",
+      footerBack: ""
     })
   }
 
@@ -59,6 +63,30 @@ const EditModal = ({cardToEdit, updateCardStack}: PropTypes) => {
         name="back"
         id="back"
         value={editValues.back}
+        required={false}
+        onChange={updateInputValue}
+      />
+      </FormGroup>
+      
+      <FormGroup>
+        <FormLabel inputID="footerFront">Footer Front</FormLabel>
+        <FormInput
+          type="text"
+          name="footerFront"
+          id="footerFront"
+          value={editValues.footerFront}
+          required={false}
+          onChange={updateInputValue}
+        />
+      </FormGroup>
+
+     <FormGroup>
+      <FormLabel inputID="footerBack">Footer Back</FormLabel>
+      <FormInput
+        type="text"
+        name="footerBack"
+        id="footerBack"
+        value={editValues.footerBack}
         required={false}
         onChange={updateInputValue}
       />
