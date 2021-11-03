@@ -99,6 +99,8 @@
   display: flex;
   hyphens: auto;
   flex-direction: column;
+  font-size: 11pt;
+  text-align: center;
 
   @media screen {
     padding: 1.5rem;
