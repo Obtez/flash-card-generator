@@ -97,7 +97,9 @@ const CardForm = ({addCardToStack}: PropsType) => {
         />
       </FormGroup>
 
-      <SubmitButton>Add</SubmitButton>
+      <span className={styles.submitContainer}>
+        <input type="submit" value=" + " className={styles.submitBtn} />
+      </span>
     </form>
   )
 }

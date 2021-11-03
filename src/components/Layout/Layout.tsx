@@ -3,7 +3,7 @@ import Footer from "./Footer"
 import Navbar from "./Navbar"
 
 interface PropTypes {
-  children: ReactChild[]
+  children: ReactChild
 }
 
 const Layout = ({children}: PropTypes) => {

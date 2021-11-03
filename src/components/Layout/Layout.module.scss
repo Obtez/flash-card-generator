@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+
+.navbar {
+  padding: 0.5416em 240px 1.7083em 240px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.menu {
+  width: 207px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+
+  a {
+    font-size: 1em;
+    text-decoration: none;
+    color: $text;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.footer {
+  text-align: center;
+}

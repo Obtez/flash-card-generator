@@ -53,10 +53,6 @@ const BuilderPage = () => {
     setCardStack([...filteredStack])
   }
 
-  async function deleteAllCards() {
-      setCardStack([])
-  }
-
   function populateEditModal(id: string, isOpen: boolean) {
     toggleEdit(isOpen)
 
@@ -98,21 +94,17 @@ const BuilderPage = () => {
   }
 
   return (
-    <div className={styles.cardBuilder}>
-
-      <header>
-        <Link to="/" className={styles.backLink}><IoIosArrowBack /> Back Home</Link>
-        <h1>Card Builder</h1>
-      </header>
+      <main className={styles.cardBuilder}>
       
-      <main>
+        <div className={styles.controls}>
+          <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
+          <div className={styles.previewBtn}><Button type="button" onClick={() => togglePreview()}>PREVIEW AND PRINT</Button></div>
+      </div>
       
-        <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
-        <span className={styles.previewBtn}><Button type="button" onClick={() => togglePreview()}>Preview and Print</Button></span>
-        <span><Button type="button" onClick={deleteAllCards}>Delete all Cards</Button></span>
-        {cardStack.length > 0 ? <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal} /> : null}
-    
-       {
+       <div className={styles.cardsContainer}>    
+               {cardStack.length > 0 ? <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal} /> : null}
+       </div>
+       {/* {
       showPreview ? (
         <div className={styles.modal}>
           <div className={styles.previewContainer}>
@@ -124,9 +116,8 @@ const BuilderPage = () => {
         
         {
           showEdit ? <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack} /> : null
-        }
+        } */}
      </main>
-    </div>
   )
 }
 

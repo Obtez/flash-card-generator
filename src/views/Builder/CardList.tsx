@@ -11,8 +11,6 @@ interface PropsType {
 const CardList = ({ cardStack, deleteCard, populateEditModal }: PropsType) => {  
   return (
     <section className={styles.cardList}>
-
-      <h2>Your Cards</h2>
       <ul>
         {cardStack.map(card => {
         return (

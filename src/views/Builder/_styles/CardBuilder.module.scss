@@ -1,0 +1,78 @@
+@import "../../../styles/variables";
+
+.cardBuilder {
+  margin: 0 240px;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.controls {
+
+}
+
+.cardsContainer {
+  overflow: scroll;
+}
+
+.formContainer {
+  padding: 0 1.2em 1.5em 1.2em;
+  display: inline-block;
+  background-color: $bg-dark;
+  border-radius: 6px;
+  position: relative;
+}
+
+.submitContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.submitBtn {
+  position: absolute;
+  bottom: -0.7em;
+  background-color: $bg-dark;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: .25em .6em .25em .6em;
+}
+
+.previewBtn {
+  margin-top: 2.8125em;
+}
+
+.cardList {
+}
+
+.cardItem {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 13px;
+  margin-bottom: 48px;
+}
+
+.cardFront,
+.cardBack {
+  width: 25vw;
+  height: calc(25vw / 1.7191011236);
+  padding: .5em 1em;
+  background-color: $light;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  small {
+    display: block;
+    width: 100%;
+    padding-top: .5em;
+    text-align: end;
+    border-top: .5px solid #666;
+  }
+}

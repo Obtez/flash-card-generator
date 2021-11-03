@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom"
+import styles from "./Layout.module.scss"
 
 const Navbar = () => {
   return (
-    <nav>
-      <p>hedgey-cards</p>
-      <ul>
+    <nav className={styles.navbar}>
+      <p className={styles.logo}>hedgeyCards</p>
+      <ul className={styles.menu}>
         <li>
           <Link to="/">Home</Link>
         </li>
 
         <li>
-          <Link to="/build">Create</Link>
+          <Link to="/create">Create</Link>
         </li>
 
         <li>

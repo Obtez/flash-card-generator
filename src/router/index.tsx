@@ -8,23 +8,23 @@ const Router = () => {
   return (
     <BrowserRouter>
 
-      <Switch>
         <Layout>
+      <Switch>
         
           {/* Homepage */}
           <Route exact path="/">
             <HomePage />
           </Route>
           {/* Card Builder */}
-          <Route exact path="/build">
+          <Route exact path="/create">
             <BuilderPage />
           </Route>
           {/* 404 Not Found */}
           <Route path="*">
             <PageNotFound />
           </Route>
-        </Layout>
       </Switch>
+        </Layout>
 
     </BrowserRouter>
   )

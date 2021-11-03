@@ -1,2 +1,12 @@
 @import "../../styles/variables";
 
+.btn {
+  font-size: 1.375em;
+  padding: 0.72em 0;
+  width: 100%;
+  color: $light;
+  background-color: $accent;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+}
