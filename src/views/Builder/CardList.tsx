@@ -1,6 +1,6 @@
 import { ICard } from "types";
-import Card from "../Card/Card";
-import styles from "../_styles/CardBuilder.module.scss";
+import Card from "./Card";
+import styles from "./_styles/CardBuilder.module.scss";
 
 interface PropsType {
   cardStack: ICard[]

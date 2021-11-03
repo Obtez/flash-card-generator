@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import { ICard } from "types"
-import BuilderForm from "../BuilderForm/BuilderForm"
-import CardList from "../CardList/CardList";
+import BuilderForm from "./BuilderForm"
+import CardList from "./CardList";
 import {IoIosArrowBack} from "react-icons/io"
-import styles from "../_styles/CardBuilder.module.scss";
-import Preview from "../Preview/Preview";
+import styles from "./_styles/CardBuilder.module.scss";
+import Preview from "./Preview";
 import Button from "components/Button/Button";
-import EditModal from "../EditModal/EditModal";
+import EditModal from "./EditModal";
 
 const BuilderPage = () => {
   const [cardStack, setCardStack] = useState<ICard[]>(() => {

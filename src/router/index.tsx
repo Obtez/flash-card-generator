@@ -1,5 +1,5 @@
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import BuilderPage from "../views/Builder/BuilderPage/BuilderPage";
+import BuilderPage from "../views/Builder/BuilderPage"
 import HomePage from "../views/Home/HomePage/HomePage";
 import PageNotFound from "../views/PageNotFound/PageNotFound";
 

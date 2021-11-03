@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { AiFillCloseCircle } from "react-icons/ai";
 import { ICard } from "types";
 import CardSide from './CardSide';
-import styles from "../_styles/Preview.module.scss";
+import styles from "./_styles/Preview.module.scss";
 
 interface PropsType {
   cardStack: ICard[]
