@@ -3,6 +3,13 @@
 // ========================
 // SCREEN
 // ========================
+@mixin inputField {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border-radius: 6px;
+  border: none;
+  width: 243px;
+}
 
 
 // ========================

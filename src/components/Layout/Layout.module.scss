@@ -10,6 +10,13 @@
   font-size: 1.5em;
   font-style: italic;
   font-weight: 700;
+  color: $text;
+  text-decoration: none;
+
+  &:hover {
+    color: $accent;
+  }
+  
 }
 
 .menu {

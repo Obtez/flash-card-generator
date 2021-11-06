@@ -12,18 +12,28 @@ interface PropsType {
 const Card = ({ card, deleteCard, populateEditModal }: PropsType) => {
   return (
     <li className={styles.cardItem}>
-      <AiOutlineDelete className={styles.deleteIcon} onClick={() => deleteCard(card.id)}/>
       <div className={styles.cardFront} onClick={() => populateEditModal(card.id, false)}>
-        <BiEdit className={styles.editIcon} />
-        <p>{card.front}</p>
-        <small className={styles.cardFooter}>{card.footerFront}</small>
+        <p className={styles.cardBody}>{card.front}</p>
+        {
+          card.footerFront ? (
+          <small className={styles.cardFooter}>{card.footerFront}</small>
+          ) : null
+        }
   
       </div>
       
       <div className={styles.cardBack} onClick={() => populateEditModal(card.id, false)} >
+        <p className={styles.cardBody}>{card.back}</p>
+         {
+          card.footerBack ? (
+          <small className={styles.cardFooter}>{card.footerBack}</small>
+          ) : null
+        }
+      </div>
+
+      <div className={styles.btnContainer}>
         <BiEdit className={styles.editIcon} />
-        <p>{card.back}</p>
-        <small className={styles.cardFooter}>{card.footerBack}</small>
+        <AiOutlineDelete className={styles.deleteIcon} onClick={() => deleteCard(card.id)}/>
       </div>
 
   </li>

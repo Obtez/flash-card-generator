@@ -4,7 +4,9 @@ import styles from "./Layout.module.scss"
 const Navbar = () => {
   return (
     <nav className={styles.navbar}>
-      <p className={styles.logo}>hedgeyCards</p>
+      <Link to="/" className={styles.logo}>
+        hedgeyCards
+      </Link>
       <ul className={styles.menu}>
         <li>
           <Link to="/">Home</Link>

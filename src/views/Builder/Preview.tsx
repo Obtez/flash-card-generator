@@ -103,7 +103,7 @@ const Preview = ({ togglePreview }: PropsType) => {
           </span>
 
         <ReactToPrint
-          trigger={() => <Button type="button">Print</Button>}
+          trigger={() => <Button type="button" isPrimary={true}>Print</Button>}
           content={() => printRef.current}
           documentTitle="Flash Cards"
           pageStyle="margin: 1.2cm 1cm"

@@ -53,6 +53,11 @@ const BuilderPage = () => {
     setCardStack([...filteredStack])
   }
 
+  function deleteAllCards() {
+    localStorage.setItem("cards", JSON.stringify([]))
+    setCardStack([])
+  }
+
   function populateEditModal(id: string, isOpen: boolean) {
     toggleEdit(isOpen)
 
@@ -98,7 +103,8 @@ const BuilderPage = () => {
       
         <div className={styles.controls}>
           <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
-          <div className={styles.previewBtn}><Button type="button" onClick={() => togglePreview()}>PREVIEW AND PRINT</Button></div>
+          <div className={styles.previewBtn}><Button type="button" isPrimary={true} onClick={() => togglePreview()}>PREVIEW AND PRINT</Button></div>
+          <div className={styles.deleteBtn}><Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button></div>
       </div>
       
        <div className={styles.cardsContainer}>    
