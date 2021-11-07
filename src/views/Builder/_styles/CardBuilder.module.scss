@@ -2,10 +2,10 @@
 @import "../../../styles/mixins";
 
 .cardBuilder {
-  margin: 0 240px;
+  margin: 0 13.2vw;
   min-height: 100vh;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
 }
 
