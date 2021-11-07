@@ -16,12 +16,15 @@
 // PREVIEW
 // ========================
 @mixin pageInside($direction) {
+  padding: 0;
+  margin: 0;
   display: grid;
   direction: $direction;
   @media print {
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(5, 5.4cm);
     break-inside: avoid-page;
+    -webkit-break-inside: avoid-page;
     overflow: hidden;
   }
   

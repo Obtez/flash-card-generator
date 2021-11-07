@@ -118,13 +118,16 @@
   bottom: 0;
   z-index: 1;
   display: flex;
-  justify-content: end;
+  // webkit flexbox
+  justify-content: flex-end;
   align-items: flex-end;
 
   .previewContainer {
     color: white;
     text-align: center;
     background-color: #4B4B54;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     width: 20vw;
     height: 93vh;
