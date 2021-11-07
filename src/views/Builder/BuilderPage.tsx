@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
 import { ICard } from "types"
 import BuilderForm from "./BuilderForm"
 import CardList from "./CardList";
-import {IoIosArrowBack} from "react-icons/io"
 import styles from "./_styles/CardBuilder.module.scss";
 import Preview from "./Preview";
 import Button from "components/Button/Button";
@@ -19,6 +17,7 @@ const BuilderPage = () => {
       return []
     }
   })
+
   const [showPreview, setShowPreview] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   const [cardToEdit, setCardToEdit] = useState({
@@ -34,8 +33,10 @@ const BuilderPage = () => {
     if (stored !== null) {
       const cards = JSON.parse(stored)
       setCardStack(cards)
-    } 
+    }
   }, [showPreview, showEdit])
+
+  
 
   async function addCardToStack(card: any) {
     if (cardStack.length === 0) {
@@ -51,6 +52,11 @@ const BuilderPage = () => {
     const filteredStack = cardStack.filter(c => c.id !== id)
     localStorage.setItem("cards", JSON.stringify(filteredStack))
     setCardStack([...filteredStack])
+  }
+
+  function deleteAllCards() {
+    localStorage.setItem("cards", JSON.stringify([]))
+    setCardStack([])
   }
 
   function populateEditModal(id: string, isOpen: boolean) {
@@ -94,22 +100,20 @@ const BuilderPage = () => {
   }
 
   return (
-    <div className={styles.cardBuilder}>
-
-      <header>
-        <Link to="/" className={styles.backLink}><IoIosArrowBack /> Back Home</Link>
-        <h1>Card Builder</h1>
-      </header>
+      <main className={styles.cardBuilder}>
       
-      <main>
-      
+        <div className={styles.controls}>
         <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
-        <span className={styles.previewBtn}><Button type="button" onClick={() => togglePreview()}>Preview and Print</Button></span>
-        {cardStack.length > 0 ? <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal} /> : null}
-    
+          <div className={styles.previewBtn}><Button type="button" isPrimary={true} onClick={() => togglePreview()}>PREVIEW AND PRINT</Button></div>
+          <div className={styles.deleteBtn}><Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button></div>
+      </div>
+      
+       <div className={styles.cardsContainer}>    
+               {cardStack.length > 0 ? <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal} /> : null}
+       </div>
        {
       showPreview ? (
-        <div className={styles.modal}>
+        <div className={styles.previewModal}>
           <div className={styles.previewContainer}>
             <Preview cardStack={cardStack} togglePreview={togglePreview} />
           </div>
@@ -118,10 +122,15 @@ const BuilderPage = () => {
         }
         
         {
-          showEdit ? <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack} /> : null
+        showEdit ? (
+          <div className={styles.editModal}>
+            <div className={styles.editContainer}>
+              <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack} />
+            </div>
+            </div>
+          ) : null
         }
      </main>
-    </div>
   )
 }
 

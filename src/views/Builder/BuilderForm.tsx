@@ -1,14 +1,13 @@
 import FormGroup from "components/forms/FormGroup/FormGroup";
 import FormLabel from "components/forms/FormLabel/FormLabel";
-import FormInput from "components/forms/FormInput/FormInput";
-import SubmitButton from "components/forms/SubmitButton/SubmitButton";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useRef } from "react";
+import { ChangeEvent } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import { ICard } from "types";
 import styles from "./_styles/CardBuilder.module.scss";
 
 interface PropsType {
-  addCardToStack: (card: ICard) => void;
+  addCardToStack: (card: ICard) => void
 }
 
 const CardForm = ({addCardToStack}: PropsType) => {
@@ -20,11 +19,12 @@ const CardForm = ({addCardToStack}: PropsType) => {
     footerBack: ""
   })
 
+  const inputRef = useRef<any>(null)
 
-  function updateInputValue(property: string, value: string) {
+  function updateInputValue(e: ChangeEvent<HTMLInputElement>) {
     setNewCard({
       ...newCard,
-      [property]: value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -45,59 +45,67 @@ const CardForm = ({addCardToStack}: PropsType) => {
       footerFront: "",
       footerBack: ""
     })
+    if (inputRef.current) {
+    inputRef.current.focus()
+    }
   }
 
   return (
     <form onSubmit={handleSubmit} className={styles.formContainer}>
       <FormGroup>
         <FormLabel inputID="front">Front</FormLabel>
-        <FormInput
-          type="text"
-          name="front"
-          id="front"
-          value={newCard.front}
-          required={false}
-          onChange={updateInputValue}
-        />
+      <input 
+      type="text" 
+      name="front" id="front" 
+      value={newCard.front} 
+      ref={inputRef} 
+      onChange={(e) => updateInputValue(e)} 
+      required
+      />
       </FormGroup>
+
 
        <FormGroup>
         <FormLabel inputID="back">Back</FormLabel>
-        <FormInput
-          type="text"
-          name="back"
-          id="back"
-          value={newCard.back}
-          required={false}
-          onChange={updateInputValue}
+        <input 
+        type="text" 
+        name="back" 
+        id="back" 
+        value={newCard.back} 
+        onChange={(e) => updateInputValue(e)} 
+        required 
         />
       </FormGroup>
 
       <FormGroup>
         <FormLabel inputID="footerFront">Footer Front</FormLabel>
-        <FormInput
-          type="text"
-          name="footerFront"
-          id="footerFront"
-          value={newCard.footerFront}
-          required={false}
-          onChange={updateInputValue}
+        <input 
+        type="text" 
+        name="footerFront" 
+        id="footerFront" 
+        value={newCard.footerFront} 
+        onChange={(e) => updateInputValue(e)} 
         />
       </FormGroup>
 
       <FormGroup>
         <FormLabel inputID="footerFront">Footer Back</FormLabel>
-        <FormInput
-          type="text"
-          name="footerBack"
-          id="footerBack"
-          value={newCard.footerBack}
-          required={false}
-          onChange={updateInputValue}
+        <input 
+        type="text" 
+        name="footerBack" 
+        id="footerBack" 
+        value={newCard.footerBack} 
+        onChange={(e) => updateInputValue(e)} 
         />
       </FormGroup>
 
-      <SubmitButton>Add</SubmitButton>
+      <span className={styles.submitContainer}>
+        <input 
+        type="submit" 
+        value=" + " 
+        className={styles.submitBtn} 
+        />
+      </span>
     </form>
   )
 }

@@ -9,30 +9,6 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: $bg-light;
   color: $text;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-p {
-  font-size: 1.2rem;
-}
-
-a {
-  text-decoration: none;
-  color: $text;
-}
-
-textarea {
-  font-family: 'Poppins', sans-serif;
-}
-
-
-@media print {
-  .noPrint {
-    display: none;
-  }
+  background-color: $body-bg;
 }

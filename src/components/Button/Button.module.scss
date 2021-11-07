@@ -1,19 +1,23 @@
 @import "../../styles/variables";
 
 .btn {
+  padding: 0.72em 0;
   width: 100%;
-  margin: 1em 0;
-  padding: 1em 1.5em;
+  border-radius: 6px;
   font-weight: 700;
 }
 
-.primary {
+.btnPrimary {
+  font-size: 1.375em;
+  color: $light;
+  background-color: $accent;
   border: none;
-  border-radius: 3px;
-  color: $text-light;
-  background-color: $primary;
 }
 
-.secondary {
+.btnSecondary {
+  font-size: 1.1em;
   text-decoration: underline;
+  color: $text;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }

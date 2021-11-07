@@ -1,10 +1,9 @@
 import FormGroup from "components/forms/FormGroup/FormGroup";
 import FormLabel from "components/forms/FormLabel/FormLabel";
-import FormInput from "components/forms/FormInput/FormInput";
-import FormTextArea from "components/forms/FormTextArea/FormTextArea";
 import SubmitButton from "components/forms/SubmitButton/SubmitButton";
 import { FormEvent, useState } from "react";
-import styles from "../../../../components/forms/Form.module.scss";
+import { ChangeEvent } from "react"
+import styles from "../../../components/forms/Form.module.scss";
 
 interface Message {
   name: string,
@@ -19,10 +18,10 @@ const ContactForm = () => {
     message: "",
   })
 
-  function updateInputValue(property: string, value: string) {
+  function updateInputValue(e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) {
     setMessageDetails({
       ...messageDetails,
-      [property]: value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -39,36 +38,37 @@ const ContactForm = () => {
     <form className={styles.formContainer} onSubmit={handleSubmit}>
       <FormGroup>
         <FormLabel inputID="name">Name</FormLabel>
-        <FormInput
+        <input 
           type="text"
           name="name"
           id="name"
           value={messageDetails.name}
-          required={true}
-          onChange={updateInputValue}
-        />
+          required
+          onChange={(e) => updateInputValue(e)}
+          />
       </FormGroup>
 
       <FormGroup>
         <FormLabel inputID="email">Email</FormLabel>
-        <FormInput
+        <input
           type="email"
           name="email"
           id="email"
           value={messageDetails.email}
-          required={true}
-          onChange={updateInputValue}
+          required
+          onChange={(e) => updateInputValue(e)}
         />
       </FormGroup>
 
       <FormGroup>
         <FormLabel inputID="message">Message</FormLabel>
-        <FormTextArea
+        <textarea
           name="message"
           id="message"
           value={messageDetails.message}
-          required={true}
-          onChange={updateInputValue} />
+          required
+          onChange={(e) => updateInputValue(e)} 
+          />
       </FormGroup>
 
       <SubmitButton>Send</SubmitButton>

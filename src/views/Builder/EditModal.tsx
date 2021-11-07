@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react"
+import {ChangeEvent} from "react"
 import FormGroup from "components/forms/FormGroup/FormGroup"
 import FormLabel from "components/forms/FormLabel/FormLabel"
-import FormInput from "components/forms/FormInput/FormInput"
 import SubmitButton from "components/forms/SubmitButton/SubmitButton"
 import {ICard} from "../../types"
 import styles from "./_styles/CardBuilder.module.scss"
@@ -20,10 +20,10 @@ const EditModal = ({cardToEdit, updateCardStack}: PropTypes) => {
     footerBack: cardToEdit.footerBack
   })
 
-  function updateInputValue(property: string, value: string) {
+  function updateInputValue(e: ChangeEvent<HTMLInputElement>) {
     setEditValues({
       ...editValues,
-      [property]: value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -43,56 +43,53 @@ const EditModal = ({cardToEdit, updateCardStack}: PropTypes) => {
   }
 
   return (
-  <form onSubmit={handleSubmit} className={styles.editModal}>
-    <FormGroup>
+    <form onSubmit={handleSubmit} className={styles.editForm}>
+      <h3>EDIT</h3>
+    <div className={styles.formGroup}>
       <FormLabel inputID="front">Front</FormLabel>
-      <FormInput
+      <input
         type="text"
         name="front"
         id="front"
         value={editValues.front}
-        required={false}
-        onChange={updateInputValue}
+        onChange={(e) => updateInputValue(e)}
       />
-    </FormGroup>
+    </div>
 
-     <FormGroup>
+     <div className={styles.formGroup}>
       <FormLabel inputID="back">Back</FormLabel>
-      <FormInput
+      <input
         type="text"
         name="back"
         id="back"
         value={editValues.back}
-        required={false}
-        onChange={updateInputValue}
+        onChange={(e) => updateInputValue(e)}
       />
-      </FormGroup>
+      </div>
       
-      <FormGroup>
+      <div className={styles.formGroup}>
         <FormLabel inputID="footerFront">Footer Front</FormLabel>
-        <FormInput
+        <input
           type="text"
           name="footerFront"
           id="footerFront"
           value={editValues.footerFront}
-          required={false}
-          onChange={updateInputValue}
+          onChange={(e) => updateInputValue(e)}
         />
-      </FormGroup>
+      </div>
 
-     <FormGroup>
+     <div className={styles.formGroup}>
       <FormLabel inputID="footerBack">Footer Back</FormLabel>
-      <FormInput
+      <input
         type="text"
         name="footerBack"
         id="footerBack"
         value={editValues.footerBack}
-        required={false}
-        onChange={updateInputValue}
+        onChange={(e) => updateInputValue(e)}
       />
-    </FormGroup>
+    </div>
 
-    <SubmitButton>Save</SubmitButton>
+    <input type="submit" value="Save" />
   </form>
   )
 }
