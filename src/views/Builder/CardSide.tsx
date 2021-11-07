@@ -14,16 +14,14 @@ const CardSide = ({ id, cardSide, isFront, withBorder }: PropsTypes) => {
       {
         withBorder? (
           <div className={styles.card} key={id}>
-            <div className={`${styles.cardBody} ${styles.withBorder}`}>
+            <div className={`${styles.cardBody}`}>
               <p>{isFront ? cardSide.front : cardSide.back}</p>
-              <small>{ isFront ? cardSide.footerFront : cardSide.footerBack}</small>
             </div>
           </div>
       ) : (
         <div className={styles.card} key={id}>
           <div className={styles.cardBody}>
             <p>{isFront ? cardSide.front : cardSide.back}</p>
-            <small>{ isFront ? cardSide.footerFront : cardSide.footerBack}</small>
           </div>
         </div>
       )

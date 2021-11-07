@@ -32,7 +32,7 @@ const Card = ({ card, deleteCard, populateEditModal }: PropsType) => {
       </div>
 
       <div className={styles.btnContainer}>
-        <BiEdit className={styles.editIcon} />
+        <BiEdit className={styles.editIcon} onClick={() => populateEditModal(card.id, false)} />
         <AiOutlineDelete className={styles.deleteIcon} onClick={() => deleteCard(card.id)}/>
       </div>
 

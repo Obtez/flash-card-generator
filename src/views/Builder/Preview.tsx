@@ -97,17 +97,14 @@ const Preview = ({ togglePreview }: PropsType) => {
           {generatePages()}
         </div>
 
-          <span className={styles.checkboxFormGroup}>
-            <input type="checkbox" name="showBorder" onChange={handleChange} />
-            <FormLabel inputID="front">Show Border</FormLabel>
-          </span>
-
-        <ReactToPrint
-          trigger={() => <Button type="button" isPrimary={true}>Print</Button>}
-          content={() => printRef.current}
-          documentTitle="Flash Cards"
-          pageStyle="margin: 1.2cm 1cm"
-        />
+          <div className={styles.previewControls}>
+                    <ReactToPrint
+            trigger={() => <Button type="button" isPrimary={true}>Print</Button>}
+            content={() => printRef.current}
+            documentTitle="Flash Cards"
+            pageStyle="margin: 1.2cm 1cm"
+                    />
+          </div>
       </div>
     </div>
   )

@@ -7,7 +7,7 @@ import { ICard } from "types";
 import styles from "./_styles/CardBuilder.module.scss";
 
 interface PropsType {
-  addCardToStack: (card: ICard) => void;
+  addCardToStack: (card: ICard) => void
 }
 
 const CardForm = ({addCardToStack}: PropsType) => {
@@ -86,7 +86,6 @@ const CardForm = ({addCardToStack}: PropsType) => {
         value={newCard.footerFront} 
         onChange={(e) => updateInputValue(e)} 
         />
-
       </FormGroup>
 
       <FormGroup>

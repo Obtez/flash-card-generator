@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
 import { ICard } from "types"
 import BuilderForm from "./BuilderForm"
 import CardList from "./CardList";
-import {IoIosArrowBack} from "react-icons/io"
 import styles from "./_styles/CardBuilder.module.scss";
 import Preview from "./Preview";
 import Button from "components/Button/Button";
@@ -19,6 +17,7 @@ const BuilderPage = () => {
       return []
     }
   })
+
   const [showPreview, setShowPreview] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   const [cardToEdit, setCardToEdit] = useState({
@@ -34,8 +33,10 @@ const BuilderPage = () => {
     if (stored !== null) {
       const cards = JSON.parse(stored)
       setCardStack(cards)
-    } 
+    }
   }, [showPreview, showEdit])
+
+  
 
   async function addCardToStack(card: any) {
     if (cardStack.length === 0) {
@@ -102,7 +103,7 @@ const BuilderPage = () => {
       <main className={styles.cardBuilder}>
       
         <div className={styles.controls}>
-          <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
+        <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
           <div className={styles.previewBtn}><Button type="button" isPrimary={true} onClick={() => togglePreview()}>PREVIEW AND PRINT</Button></div>
           <div className={styles.deleteBtn}><Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button></div>
       </div>
@@ -110,9 +111,9 @@ const BuilderPage = () => {
        <div className={styles.cardsContainer}>    
                {cardStack.length > 0 ? <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal} /> : null}
        </div>
-       {/* {
+       {
       showPreview ? (
-        <div className={styles.modal}>
+        <div className={styles.previewModal}>
           <div className={styles.previewContainer}>
             <Preview cardStack={cardStack} togglePreview={togglePreview} />
           </div>
@@ -121,8 +122,14 @@ const BuilderPage = () => {
         }
         
         {
-          showEdit ? <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack} /> : null
-        } */}
+        showEdit ? (
+          <div className={styles.editModal}>
+            <div className={styles.editContainer}>
+              <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack} />
+            </div>
+            </div>
+          ) : null
+        }
      </main>
   )
 }

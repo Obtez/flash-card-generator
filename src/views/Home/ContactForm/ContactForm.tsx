@@ -1,6 +1,5 @@
 import FormGroup from "components/forms/FormGroup/FormGroup";
 import FormLabel from "components/forms/FormLabel/FormLabel";
-import FormTextArea from "components/forms/FormTextArea/FormTextArea";
 import SubmitButton from "components/forms/SubmitButton/SubmitButton";
 import { FormEvent, useState } from "react";
 import { ChangeEvent } from "react"
