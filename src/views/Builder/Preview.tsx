@@ -8,34 +8,19 @@ import { ICard } from "types";
 import CardSide from './CardSide';
 import styles from "./_styles/Preview.module.scss";
 
+
 interface PropsType {
-  cardStack: ICard[]
+  printStack: ICard[]
   togglePreview: () => void
 }
 
-const Preview = ({ togglePreview }: PropsType) => {
-  const [cardStack, setCardStack] = useState<ICard[]>([])
-  const [withBorder, setWithBorder] = useState(false)
+const Preview = ({ printStack, togglePreview }: PropsType) => {
   const printRef = useRef(null);
 
-  useEffect(() => {
-    const stored = localStorage.getItem("cards")
-    if (stored !== null) {
-      const cards = JSON.parse(stored)
-      setCardStack(cards)
-    } 
-  }, [withBorder])
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    if (e.target.name === "showBorder") {
-      setWithBorder(!withBorder)
-    }
-  }
-  
   let sortedPages: ICard[][] = []
 
    function sortCardsIntoPageArrays() {
-     let cards: ICard[] = cardStack;
+     let cards: ICard[] = printStack;
      let pagesArray: ICard[][] = []
 
      let i = cards.length
@@ -73,12 +58,12 @@ const Preview = ({ togglePreview }: PropsType) => {
         <div key={uuidv4()} className={styles.preview}>
           {/* page 1 with card fronts */}
           <div className={styles.pageInnerContainerFront} key={uuidv4()}>
-            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={true} withBorder={withBorder} />)}
+            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={true} />)}
           </div>
 
           {/* page 2 with card backs */}
           <div className={styles.pageInnerContainerBack} key={ uuidv4()}>
-            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={false} withBorder={withBorder} />)}
+            {cardPair.map(cardSide => <CardSide id={uuidv4()} cardSide={cardSide} isFront={false} />)}
           </div>
         </div>
       )
@@ -93,6 +78,7 @@ const Preview = ({ togglePreview }: PropsType) => {
         <p>Scroll to see next pages</p>
       </header>
       <div className={styles.previewBody}>
+        
         <div className={styles.pageContainer}>
           {generatePages()}
         </div>
@@ -102,7 +88,6 @@ const Preview = ({ togglePreview }: PropsType) => {
             trigger={() => <Button type="button" isPrimary={true}>Print</Button>}
             content={() => printRef.current}
             documentTitle="Flash Cards"
-            pageStyle="margin: 1.2cm 1cm"
                     />
           </div>
       </div>

@@ -5,27 +5,19 @@ interface PropsTypes {
   id: string
   cardSide: ICard
   isFront: boolean
-  withBorder: boolean
 }
 
-const CardSide = ({ id, cardSide, isFront, withBorder }: PropsTypes) => {
+const CardSide = ({ id, cardSide, isFront }: PropsTypes) => {
   return (
     <>
-      {
-        withBorder? (
-          <div className={styles.card} key={id}>
-            <div className={`${styles.cardBody}`}>
-              <p>{isFront ? cardSide.front : cardSide.back}</p>
-            </div>
-          </div>
-      ) : (
         <div className={styles.card} key={id}>
           <div className={styles.cardBody}>
             <p>{isFront ? cardSide.front : cardSide.back}</p>
           </div>
+          <div className={styles.cardFooter}>
+            <p>{isFront ? cardSide.footerFront : cardSide.footerBack}</p>
+          </div>
         </div>
-      )
-        }
     </>
   )
 }
