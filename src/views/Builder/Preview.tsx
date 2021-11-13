@@ -1,26 +1,20 @@
-import { useState, useEffect, useRef, ChangeEvent } from "react";
-import FormLabel from "components/forms/FormLabel/FormLabel";
-import Button from "components/Button/Button";
-import ReactToPrint from "react-to-print";
 import { v4 as uuidv4 } from 'uuid';
-import { AiFillCloseCircle } from "react-icons/ai";
 import { ICard } from "types";
 import CardSide from './CardSide';
 import styles from "./_styles/Preview.module.scss";
 
 
 interface PropsType {
-  printStack: ICard[]
+  cardStack: ICard[]
   togglePreview: () => void
 }
 
-const Preview = ({ printStack, togglePreview }: PropsType) => {
-  const printRef = useRef(null);
+const Preview = ({ cardStack, togglePreview }: PropsType) => {
 
   let sortedPages: ICard[][] = []
 
    function sortCardsIntoPageArrays() {
-     let cards: ICard[] = printStack;
+     let cards: ICard[] = cardStack.slice();
      let pagesArray: ICard[][] = []
 
      let i = cards.length
@@ -46,7 +40,7 @@ const Preview = ({ printStack, togglePreview }: PropsType) => {
   
   
   // To enable easy 2-side print, the front and the back of each card need to be on different pages
-  // and aligend correctly. 
+  // and aligned correctly. 
   function generatePages() {
     // sortedPages [[page1 card fronts], [page2 card backs],...]
     // one array per page
@@ -71,27 +65,9 @@ const Preview = ({ printStack, togglePreview }: PropsType) => {
   }
   
   return (
-    <div className={styles.previewLayout} ref={printRef}>
-      <header>
-        <AiFillCloseCircle className={styles.modalCloseBtn} onClick={() => togglePreview()} />
-        <h1>Preview</h1>
-        <p>Scroll to see next pages</p>
-      </header>
-      <div className={styles.previewBody}>
-        
         <div className={styles.pageContainer}>
           {generatePages()}
         </div>
-
-          <div className={styles.previewControls}>
-                    <ReactToPrint
-            trigger={() => <Button type="button" isPrimary={true}>Print</Button>}
-            content={() => printRef.current}
-            documentTitle="Flash Cards"
-                    />
-          </div>
-      </div>
-    </div>
   )
 }
 

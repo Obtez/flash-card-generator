@@ -1,12 +1,12 @@
-import {useState, useEffect, useRef} from "react";
-import { ICard } from "types"
-import BuilderForm from "./BuilderForm"
-import CardList from "./CardList";
-import styles from "./_styles/CardBuilder.module.scss";
-import Preview from "./Preview";
 import Button from "components/Button/Button";
-import EditModal from "./EditModal";
+import { useEffect, useRef, useState } from "react";
 import ReactToPrint from "react-to-print";
+import { ICard } from "types";
+import BuilderForm from "./BuilderForm";
+import CardList from "./CardList";
+import EditModal from "./EditModal";
+import Preview from "./Preview";
+import styles from "./_styles/CardBuilder.module.scss";
 
 const BuilderPage = () => {
   const [cardStack, setCardStack] = useState<ICard[]>(() => {
@@ -18,8 +18,6 @@ const BuilderPage = () => {
       return []
     }
   })
-
-  const [printStack, setPrintStack] = useState<ICard[]>([])
 
   const [showPreview, setShowPreview] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
@@ -33,14 +31,13 @@ const BuilderPage = () => {
 
   const printRef = useRef(null);
 
-  // useEffect(() => {
-  //   const stored = localStorage.getItem("cards")
-  //   if (stored !== null) {
-  //     const cards = JSON.parse(stored)
-  //     setCardStack(cards)
-  //   }
-  // }, [showPreview, showEdit])
-  
+  useEffect(() => {
+    const stored = localStorage.getItem("cards")
+    if (stored !== null) {
+      const cards = JSON.parse(stored)
+      setCardStack(cards)
+    }
+  }, [showPreview, showEdit])
 
   async function addCardToStack(card: any) {
     if (cardStack.length === 0) {
@@ -100,9 +97,7 @@ const BuilderPage = () => {
   }
 
   function togglePreview() {
-    setPrintStack([...cardStack])
     setShowPreview(!showPreview)
-    // setPrintStack([])
   }
 
   return (
@@ -110,13 +105,10 @@ const BuilderPage = () => {
 
         <div className={styles.controls}>
           <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)}/>
-          <div className={styles.previewBtn}>
-            {/*
-            <Button type="button" isPrimary={true} onClick={() => togglePreview()}>PREVIEW AND PRINT</Button>
-              */}
+        <div className={styles.previewBtn}>
+          
             <ReactToPrint
                 trigger={() => <Button type={"button"} isPrimary={true}>Print</Button>}
-                onBeforeGetContent={() => togglePreview()}
                 content={() => printRef.current}
                 documentTitle={"Flash Cards"}
                 pageStyle={"margin: 1.2cm 1cm"}
@@ -134,15 +126,7 @@ const BuilderPage = () => {
         </div>
 
         <div className={styles.hidden} ref={printRef}>
-          {
-          showPreview && printStack.length > 0 ? (
-              <div className={styles.previewModal}>
-                <div className={styles.previewContainer} ref={printRef}>
-                  <Preview printStack={printStack} togglePreview={togglePreview}/>
-                </div>
-              </div>
-          ) : ""
-        }
+                  <Preview cardStack={cardStack} togglePreview={togglePreview}/>
         </div>
 
 
