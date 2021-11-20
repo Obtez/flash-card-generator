@@ -1,216 +1,469 @@
 @import "../../../styles/variables";
 @import "../../../styles/mixins";
 
-.cardBuilder {
-  margin: 0 13.2vw;
-  min-height: 100vh;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
-
-.controls {
-
-}
-
-.cardsContainer {
-}
-
-.formContainer {
-  padding: 0 1.2em 1.5em 1.2em;
-  display: inline-block;
-  background-color: $bg-dark;
-  border-radius: 6px;
-  position: relative;
-
-  .formGroup {
+@media screen {
+  .cardBuilder {
+    margin: 0;
     display: flex;
     flex-flow: column nowrap;
 
-    input[type="text"] {
-    padding: 0.5em 1em;
-    font-size: 1em;
+    .previewBtn {
+      width: 95%;
+      margin: auto;
+      margin-top: 2.8125rem;
+    }
+  }
+
+  .formContainer {
+    width: 95%;
+    margin: auto;
+    padding: 0rem 1rem 1.5rem 1rem;
     border-radius: 6px;
-    border: none;
-    width: 243px;
-    }
+    position: relative;
+    background-color: $bg-dark;
 
-    .charsLeft {
-      display: block;
-      text-align: end;
-      font-size: .6em;
-    }
-  }
-}
-
-.submitContainer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.submitBtn {
-  position: absolute;
-  bottom: -0.8em;
-  background-color: $bg-dark;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.5em;
-  font-weight: 700;
-  padding: .25em .6em .25em .6em;
-}
-
-.previewBtn {
-  margin-top: 2.8125em;
-}
-
-.cardList {
-}
-
-.cardItem {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 13px;
-  margin-bottom: 48px;
-
-  .btnContainer {
-    flex-basis: 100%;
-    font-size: 1.2em;
-    text-align: end;
-
-    .editIcon {
-      color: $text-icon;
-    }
-    
-    .deleteIcon {
-      margin-left: .5rem;
-      color: $accent-icon;
-    }
-  }
-}
-
-.cardFront,
-.cardBack {
-  margin-left: auto;
-  width: 26vw;
-  height: calc(26vw / 1.7191011236);
-  padding: .5em 1em;
-  background-color: $light;
-  border: none;
-  border-radius: 6px;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  align-items: center;
-
-  .cardBody {
-    flex-grow: 1;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-  }
-
-  small {
-    display: block;
-    width: 100%;
-    padding-top: .5em;
-    text-align: end;
-    border-top: .5px solid #666;
-  }
-}
-
-.previewModal {
-  background-color: rgba(20, 20, 32, 0.31);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-
-  .previewContainer {
-    color: white;
-    text-align: center;
-    background-color: #4B4B54;
-    width: -moz-fit-content;
-    width: fit-content;
-    width: 20vw;
-    height: 93vh;
-    padding: 2em 4em 1.5em 4em;
-    border: none;
-    border-top-left-radius: 6px;
-    display: flex;
-  }
-}
-
-.editModal {
-  position: fixed;
-  background-color: rgba(20, 20, 32, 0.31);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .editContainer {
-    h3 {
-      text-align: center;
-      font-size: 2em;
-    }
-      width: 27vw;
-      padding: 2.3rem 0;
-      background-color: #4B4B54;
-      color: white;
-      border-radius: 6px;
-      position: relative;
-
-      form {
-        width: 90%;
-        margin: auto;
-      }
-
+    .formGroup {
       label {
-        font-weight: 500;
+        display: block;
+        padding-top: 1.438rem;
+        margin-bottom: 0.188rem;
+        font-size: 1.125rem;
+        font-weight: 700;
       }
 
       input[type="text"] {
-      display: block;
-      margin: auto;
-      padding: 0.5em 1em;
-      font-size: 1em;
-      border-radius: 6px;
-      border: none;
-      width: 100%;
+        width: 100%;
+        display: block;
+        padding: 0.5em 1em;
+        font-size: 1em;
+        border-radius: 6px;
+        border: none;
+      }
+
+      .charsLeft {
+        display: block;
+        text-align: end;
+        font-size: .75rem;
+      }
     }
 
-    input[type="submit"] {
-      padding: .72em 0;
-      border-radius: 6px;
+    .submitContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+     input[type="submit"] {
+      display: block;
+      position: absolute;
+      bottom: -1.3rem;
+      background-color: $bg-dark;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
       font-weight: 700;
-      font-size: 1.2em;
-      width: 100%;
-      border: none;
-      background-color: $accent;
-      color: $light;
-    }
-
-    .formGroup {
-      display: block;
-      width: 100%;
-      margin: auto;
-      margin-bottom: 2em;
+      padding: .25rem .6rem .25rem .6rem;
     }
   }
-}
 
-@media screen {
+  .cardsContainer {
+    width: 95%;
+    margin: auto;
+  }
+
+  .cardList {
+    margin-top: 2rem;
+  }
+
+  .cardItem {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    .cardFront,
+    .cardBack {
+      background-color: $light;
+      height: calc(95vw / 1.7191011236);
+      border-radius: 6px;
+      display: flex;
+      flex-flow: column nowrap;
+      position: relative;
+      
+      .cardBody {
+        flex-grow: 1;
+        display: flex;
+        flex-flow: row wrap;
+        white-space: pre-wrap;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cardFooter {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: .3rem;
+        text-align: end;
+      }
+    }
+
+    .cardFront {
+      margin-bottom: 1rem;
+    }
+
+    .btnContainer {
+      margin-top: .2rem;
+      text-align: end;
+      font-size: 1.5rem;
+
+      .editIcon {
+        color: $text-icon;
+      }
+
+      .deleteIcon {
+        margin-left: .5rem;
+        color: $accent-icon;
+      }
+    }
+  }
+
+  .editModal {
+    position: fixed;
+    background-color: rgba(20,20,32,.31);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .editContainer {
+      width: 95%;
+      margin: auto;
+      text-align: center;
+      background-color: $bg-dark;
+      color: $text;
+      border-radius: 6px;
+      padding: 1rem;
+
+      form {
+        label {
+          display: block;
+          text-align: left;
+          padding-top: 1.438rem;
+          margin-bottom: 0.188rem;
+          font-size: 1.125rem;
+          font-weight: 700;
+        }
+
+        input[type="text"] {
+          width: 100%;
+          display: block;
+          padding: 0.5em 1em;
+          font-size: 1em;
+          border-radius: 6px;
+          border: none;
+        }
+
+        input[type="submit"] {
+          display: block;
+          width: 100%;
+          margin-top: 1.5rem;
+          padding: .5rem 0;
+          border-radius: 6px;
+          font-weight: 500;
+
+          font-size: 1.25rem;
+          color: $light;
+          background-color: $accent;
+          border: none;
+        }
+      }
+      
+      h3 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
   .hidden {
     visibility: hidden;
     position: absolute;
     z-index: 100;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .cardBuilder {
+    flex-flow: row nowrap;
+    padding: 0 1rem;
+  }
+
+  .controls {
+    width: 33%;
+    max-width: 360px;
+  }
+
+  .cardsContainer {
+    width: 66%;
+    padding: 0 1rem;
+    margin: auto;
+  }
+
+  .cardList {
+    margin-top: 0;
+
+    ul {
+      width: 100%;
+    }
+  }
+
+  .cardItem {
+    flex-flow: row wrap;
+
+    max-width: calc(560px * 2);
+
+    .cardFront,
+    .cardBack {
+      width: calc(50% - .5rem);
+      height: calc(33vw / 1.7191011236);
+
+      max-width: 560px;
+      max-height: calc(560px / 1.7191011236);
+
+      .cardFooter {
+        border-top: 1px solid $text;
+        padding: .4rem .8rem;
+      }
+    }
+
+    .cardFront {
+      margin-right: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .btnContainer {
+      display: flex;
+      width: 100%;
+      margin-top: 0;
+      align-items: flex-start;
+      justify-content: flex-end;
+      font-size: 1.2rem;
+    }
+  }
+
+  .editModal {
+
+    .editContainer {
+      max-width: 360px;
+    }
+  }
+}
+
+// .cardBuilder {
+//   margin: 0 13.2vw;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-flow: row nowrap;
+//   justify-content: space-between;
+// }
+
+// .formContainer {
+//   padding: 0 1.2em 1.5em 1.2em;
+//   display: inline-block;
+//   background-color: $bg-dark;
+//   border-radius: 6px;
+//   position: relative;
+
+//   .formGroup {
+//     display: flex;
+//     flex-flow: column nowrap;
+
+//     input[type="text"] {
+//     padding: 0.5em 1em;
+//     font-size: 1em;
+//     border-radius: 6px;
+//     border: none;
+//     width: 243px;
+//     }
+
+//     .charsLeft {
+//       display: block;
+//       text-align: end;
+//       font-size: .6em;
+//     }
+//   }
+// }
+
+// .submitContainer {
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .submitBtn {
+//   position: absolute;
+//   bottom: -0.8em;
+//   background-color: $bg-dark;
+//   border: none;
+//   border-radius: 50%;
+//   font-size: 1.5em;
+//   font-weight: 700;
+//   padding: .25em .6em .25em .6em;
+// }
+
+// .previewBtn {
+//   margin-top: 2.8125em;
+// }
+
+// .cardItem {
+//   display: flex;
+//   flex-flow: row wrap;
+//   gap: 13px;
+//   margin-bottom: 48px;
+
+//   .btnContainer {
+//     flex-basis: 100%;
+//     font-size: 1.2em;
+//     text-align: end;
+
+//     .editIcon {
+//       color: $text-icon;
+//     }
+    
+//     .deleteIcon {
+//       margin-left: .5rem;
+//       color: $accent-icon;
+//     }
+//   }
+// }
+
+// .cardFront,
+// .cardBack {
+//   margin-left: auto;
+//   width: 26vw;
+//   height: calc(26vw / 1.7191011236);
+//   padding: .5em 1em;
+//   background-color: $light;
+//   border: none;
+//   border-radius: 6px;
+//   display: flex;
+//   flex-flow: column nowrap;
+//   justify-content: space-between;
+//   align-items: center;
+
+//   .cardBody {
+//     flex-grow: 1;
+//     display: flex;
+//     flex-flow: row wrap;
+//     align-items: center;
+//   }
+
+//   small {
+//     display: block;
+//     width: 100%;
+//     padding-top: .5em;
+//     text-align: end;
+//     border-top: .5px solid #666;
+//   }
+// }
+
+// .previewModal {
+//   background-color: rgba(20, 20, 32, 0.31);
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   left: 0;
+//   bottom: 0;
+//   z-index: 1;
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: flex-end;
+
+//   .previewContainer {
+//     color: white;
+//     text-align: center;
+//     background-color: #4B4B54;
+//     width: -moz-fit-content;
+//     width: fit-content;
+//     width: 20vw;
+//     height: 93vh;
+//     padding: 2em 4em 1.5em 4em;
+//     border: none;
+//     border-top-left-radius: 6px;
+//     display: flex;
+//   }
+// }
+
+// .editModal {
+//   position: fixed;
+//   background-color: rgba(20, 20, 32, 0.31);
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   .editContainer {
+//     h3 {
+//       text-align: center;
+//       font-size: 2em;
+//     }
+//       width: 27vw;
+//       padding: 2.3rem 0;
+//       background-color: #4B4B54;
+//       color: white;
+//       border-radius: 6px;
+//       position: relative;
+
+//       form {
+//         width: 90%;
+//         margin: auto;
+//       }
+
+//       label {
+//         font-weight: 500;
+//       }
+
+//       input[type="text"] {
+//       display: block;
+//       margin: auto;
+//       padding: 0.5em 1em;
+//       font-size: 1em;
+//       border-radius: 6px;
+//       border: none;
+//       width: 100%;
+//     }
+
+//     input[type="submit"] {
+//       padding: .72em 0;
+//       border-radius: 6px;
+//       font-weight: 700;
+//       font-size: 1.2em;
+//       width: 100%;
+//       border: none;
+//       background-color: $accent;
+//       color: $light;
+//     }
+
+//     .formGroup {
+//       display: block;
+//       width: 100%;
+//       margin: auto;
+//       margin-bottom: 2em;
+//     }
+//   }
+// }
+
+// @media screen {
+//   .hidden {
+//     visibility: hidden;
+//     position: absolute;
+//     z-index: 100;
+//   }
+// }

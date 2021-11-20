@@ -7,11 +7,6 @@ const Navbar = () => {
       <Link to="/" className={styles.logo}>
         hedgeyCards
       </Link>
-      <ul className={styles.menu}>
-        <li>
-          <Link to="/">Editor</Link>
-        </li>
-      </ul>
     </nav>
   )
 }
