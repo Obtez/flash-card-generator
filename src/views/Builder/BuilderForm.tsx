@@ -1,6 +1,6 @@
 import FormGroup from "components/forms/FormGroup/FormGroup";
 import FormLabel from "components/forms/FormLabel/FormLabel";
-import { FormEvent, useState, useRef } from "react";
+import { FormEvent, useState, useEffect, useRef } from "react";
 import { ChangeEvent } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import { ICard } from "types";
@@ -8,6 +8,13 @@ import styles from "./_styles/CardBuilder.module.scss";
 
 interface PropsType {
   addCardToStack: (card: ICard) => void
+}
+
+interface ICharsLeft {
+  front: number,
+  back: number,
+  footerFront: number,
+  footerBack: number
 }
 
 const CardForm = ({addCardToStack}: PropsType) => {
@@ -18,6 +25,24 @@ const CardForm = ({addCardToStack}: PropsType) => {
     footerFront: "",
     footerBack: ""
   })
+
+  const [charsLeft, setCharsLeft] = useState<ICharsLeft>({
+    front: 140,
+    back: 140,
+    footerFront: 140,
+    footerBack: 140
+  })
+
+  useEffect(() => {
+    const maxChars = 140
+    setCharsLeft({
+      front: maxChars - newCard.front.length,
+      back: maxChars - newCard.back.length,
+      footerFront: maxChars - newCard.footerFront.length,
+      footerBack: maxChars - newCard.footerBack.length,
+    })
+
+  }, [newCard])
 
   const inputRef = useRef<any>(null)
 
@@ -52,52 +77,60 @@ const CardForm = ({addCardToStack}: PropsType) => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.formContainer}>
-      <FormGroup>
+      <div className={styles.formGroup}>
         <FormLabel inputID="front">Front</FormLabel>
       <input 
       type="text" 
       name="front" id="front" 
       value={newCard.front} 
       ref={inputRef} 
-      onChange={(e) => updateInputValue(e)} 
+      onChange={(e) => updateInputValue(e)}
+      maxLength={140}  
       required
-      />
-      </FormGroup>
+        />
+        <small className={styles.charsLeft}>{charsLeft.front} left</small>
+      </div>
 
 
-       <FormGroup>
+       <div className={styles.formGroup}>
         <FormLabel inputID="back">Back</FormLabel>
         <input 
         type="text" 
         name="back" 
         id="back" 
         value={newCard.back} 
-        onChange={(e) => updateInputValue(e)} 
+        onChange={(e) => updateInputValue(e)}
+        maxLength={140}
         required 
         />
-      </FormGroup>
+        <small className={styles.charsLeft}>{charsLeft.back} left</small>
+      </div>
 
-      <FormGroup>
+      <div className={styles.formGroup}>
         <FormLabel inputID="footerFront">Footer Front</FormLabel>
         <input 
         type="text" 
         name="footerFront" 
         id="footerFront" 
         value={newCard.footerFront} 
-        onChange={(e) => updateInputValue(e)} 
+        onChange={(e) => updateInputValue(e)}
+        maxLength={140}  
         />
-      </FormGroup>
+        <small className={styles.charsLeft}>{charsLeft.footerFront} left</small>
+      </div>
 
-      <FormGroup>
+      <div className={styles.formGroup}>
         <FormLabel inputID="footerFront">Footer Back</FormLabel>
         <input 
         type="text" 
         name="footerBack" 
         id="footerBack" 
         value={newCard.footerBack} 
-        onChange={(e) => updateInputValue(e)} 
+        onChange={(e) => updateInputValue(e)}
+        maxLength={140}  
         />
-      </FormGroup>
+        <small className={styles.charsLeft}>{charsLeft.footerBack} left</small>
+      </div>
 
       <span className={styles.submitContainer}>
         <input 

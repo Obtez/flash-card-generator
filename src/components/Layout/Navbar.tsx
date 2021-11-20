@@ -9,15 +9,7 @@ const Navbar = () => {
       </Link>
       <ul className={styles.menu}>
         <li>
-          <Link to="/">Home</Link>
-        </li>
-
-        <li>
-          <Link to="/create">Create</Link>
-        </li>
-
-        <li>
-          <Link to="/#contact">Contact</Link>
+          <Link to="/">Editor</Link>
         </li>
       </ul>
     </nav>

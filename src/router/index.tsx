@@ -10,13 +10,8 @@ const Router = () => {
 
         <Layout>
       <Switch>
-        
-          {/* Homepage */}
+          {/* Editor */}
           <Route exact path="/">
-            <HomePage />
-          </Route>
-          {/* Card Builder */}
-          <Route exact path="/create">
             <BuilderPage />
           </Route>
           {/* 404 Not Found */}

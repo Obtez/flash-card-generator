@@ -14,7 +14,6 @@
 }
 
 .cardsContainer {
-  overflow: scroll;
 }
 
 .formContainer {
@@ -24,12 +23,23 @@
   border-radius: 6px;
   position: relative;
 
-  input[type="text"] {
-  padding: 0.5em 1em;
-  font-size: 1em;
-  border-radius: 6px;
-  border: none;
-  width: 243px;
+  .formGroup {
+    display: flex;
+    flex-flow: column nowrap;
+
+    input[type="text"] {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+    width: 243px;
+    }
+
+    .charsLeft {
+      display: block;
+      text-align: end;
+      font-size: .6em;
+    }
   }
 }
 
