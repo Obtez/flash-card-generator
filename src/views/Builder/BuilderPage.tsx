@@ -103,22 +103,21 @@ const BuilderPage = () => {
   return (
       <main className={styles.cardBuilder}>
 
-        <div className={styles.controls}>
-          <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)}/>
-        <div className={styles.previewBtn}>
+          <div className={styles.controls}>
+            <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)}/>
+            <div className={styles.previewBtn}>
           
-            <ReactToPrint
-                trigger={() => <Button type={"button"} isPrimary={true}>Print</Button>}
-                content={() => printRef.current}
-                documentTitle={"Flash Cards"}
-                pageStyle={"margin: 1.2cm 1cm"}
-                />
+              <ReactToPrint
+                  trigger={() => <Button type={"button"} isPrimary={true}>Print</Button>}
+                  content={() => printRef.current}
+                  documentTitle={"Flash Cards"}
+                  pageStyle={"margin: 1.2cm 1cm"}
+                  />
+            </div>
+            <div className={styles.deleteBtn}>
+              <Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button>
+            </div>
           </div>
-
-          <div className={styles.deleteBtn}>
-            <Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button>
-          </div>
-        </div>
 
         <div className={styles.cardsContainer}>
           {cardStack.length > 0 ?
