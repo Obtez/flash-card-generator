@@ -67,7 +67,7 @@
   }
 
   .cardsContainer {
-    width: 95%;
+    width: 100%;
     margin: auto;
   }
 
@@ -209,9 +209,9 @@
   }
 
   .cardsContainer {
-    width: 66%;
-    padding: 0 1rem;
-    margin: auto;
+    width: auto;
+    padding: 0;
+    margin: 0 auto;
   }
 
   .cardList {
@@ -260,6 +260,41 @@
 
     .editContainer {
       max-width: 360px;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .cardBuilder {
+    margin: 0 240px;
+    padding: 0;
+
+    .controls {
+      width: 19.8611vw;
+      margin-right: 3.40277vw;
+    }
+  }
+
+  .formContainer {
+    width: 100%;
+  }
+
+  .cardItem {
+    display: block;
+
+    .cardFront,
+    .cardBack {
+      display: inline-flex;
+      width: 21.25vw;
+      height: calc(21.25vw / 1.7191011236);
+    }
+    
+    .cardFront {
+      margin-right: 13px;
+    }
+
+    .btnContainer {
+      width: calc(21.25vw * 2 + 13px);
     }
   }
 }
