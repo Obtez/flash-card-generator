@@ -9,7 +9,12 @@
 
 body {
   width: 100vw;
+  min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   color: $text;
   background-color: $body-bg;
+}
+
+.App {
+  min-height: 100vh;
 }

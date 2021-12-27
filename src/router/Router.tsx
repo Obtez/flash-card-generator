@@ -5,14 +5,10 @@ import PageNotFound from "../pages/PageNotFound/PageNotFound";
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Layout>
         <Routes>
           <Route path="/" element={<BuilderPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </Layout>
-    </BrowserRouter>
   )
 }
 

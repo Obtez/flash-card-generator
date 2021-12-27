@@ -1,6 +1,12 @@
 @import "../../styles/variables";
 
 @media screen {
+  .layoutWrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
+  }
+
   .navbar {
     width: 95%;
     margin: auto;
@@ -28,6 +34,10 @@
         }
       }
     }
+  }
+
+  .mainContent {
+    flex-grow: 1;
   }
 
   .footer {
