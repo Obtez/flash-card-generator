@@ -311,7 +311,7 @@
   grid-template-areas: 
   "controls cards"
   "buttons cards";
-  grid-template-columns: min-content auto;
+  grid-template-columns: min-content 1fr;
   grid-template-rows: auto 1fr;
   gap: 3.6vh 5vh;
 }

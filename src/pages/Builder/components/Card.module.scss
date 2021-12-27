@@ -5,14 +5,14 @@
   margin-bottom: 2.5vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 .813rem;
+  gap: 0 1.3vh;
 }
 
 .cardFront,
 .cardBack {
   display: flex;
   flex-flow: column nowrap;
-  width: 33vh;
+  width: auto;
   height: calc(33vh / 1.75);
   margin-bottom: .8vh;
   background-color: white;
