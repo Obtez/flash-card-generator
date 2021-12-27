@@ -83,3 +83,17 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    .logoContainer {
+      .logo {
+        width: 13.5vh;
+        padding-right: 1.3vh;
+      }
+      .slogan {
+        margin-left: 1vh;
+      }
+    }
+  }
+}
