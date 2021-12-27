@@ -18,3 +18,10 @@
     text-align: center;
   }
 }
+
+// TABLET
+@media screen and (max-height:1024px) and (max-width: 768px) {
+  .columnHeading {
+    height: 4vh;
+  }
+}

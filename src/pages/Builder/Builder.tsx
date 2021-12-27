@@ -1,4 +1,3 @@
-import Button from "components/Button/Button";
 import { useEffect, useRef, useState } from "react";
 import ReactToPrint from "react-to-print";
 import { ICard } from "types";

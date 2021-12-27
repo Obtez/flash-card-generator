@@ -78,21 +78,60 @@
   }
 }
 
-@media screen and (min-width: 1400px) {
-  .navbar {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 1024px) {
+// IPAD PRO (portrait) and TABLET (portrait)
+@media screen 
+and (max-width: 1024px) 
+and (max-height: 1366px) 
+and (orientation: portrait) {
   .navbar {
     .logoContainer {
       .logo {
-        width: 13.5vh;
+        width: 14.5vh;
         padding-right: 1.3vh;
       }
       .slogan {
         margin-left: 1vh;
+      }
+    }
+  }
+}
+
+// IPAD PRO (portrait)
+@media screen 
+and (min-width: 1024px) 
+and (orientation: portrait) {
+  .navbar {
+    .logoContainer {
+      .logo {
+        width: 11.3vh;
+      }
+    }
+  }
+}
+
+// IPAD PRO (landscape)
+@media screen 
+and (max-width: 1366px) 
+and (max-height: 1024px) 
+and (orientation: landscape) {
+  .navbar {
+    .logoContainer {
+      .logo {
+        width: 14.7vh;
+      }
+    }
+  }
+}
+
+// TABLET (landscape)
+@media screen 
+and (max-width: 1024px) 
+and (max-height: 768px) 
+and (orientation: landscape) {
+  .navbar {
+    .logoContainer {
+      .logo {
+        width: 19vh;
       }
     }
   }
