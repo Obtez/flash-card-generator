@@ -2,10 +2,18 @@
 @import "../../../styles/mixins";
 
 @media screen {
+  .builderContainer {
+    .separator {
+      width: 100%;
+      height: 2.5rem;
+    }
+  }
   .cardBuilder {
     margin: 0;
     display: flex;
     flex-flow: column nowrap;
+
+    
 
     .previewBtn {
       width: 95%;
@@ -15,8 +23,7 @@
   }
 
   .formContainer {
-    width: 95%;
-    margin: auto;
+    width: 100%;
     padding: 0rem 1rem 1.5rem 1rem;
     border-radius: 6px;
     position: relative;
@@ -200,12 +207,11 @@
 @media screen and (min-width: 1024px) {
   .cardBuilder {
     flex-flow: row nowrap;
-    padding: 0 1rem;
   }
 
   .controls {
-    width: 33%;
-    max-width: 360px;
+    // width: 33%;
+    // max-width: 360px;
   }
 
   .cardsContainer {
@@ -266,17 +272,12 @@
 
 @media screen and (min-width: 1400px) {
   .cardBuilder {
-    margin: 0 240px;
-    padding: 0;
 
     .controls {
-      width: 19.8611vw;
-      margin-right: 3.40277vw;
     }
   }
 
   .formContainer {
-    width: 100%;
   }
 
   .cardItem {
@@ -285,16 +286,12 @@
     .cardFront,
     .cardBack {
       display: inline-flex;
-      width: 21.25vw;
-      height: calc(21.25vw / 1.7191011236);
     }
     
     .cardFront {
-      margin-right: 13px;
     }
 
     .btnContainer {
-      width: calc(21.25vw * 2 + 13px);
     }
   }
 }

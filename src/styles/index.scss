@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 @import "./variables";
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,6 +17,7 @@ body {
 
 .App {
   min-height: 100vh;
+  padding: 0 calc((100vw - 100vh)/1.52);
 }
 
 a {

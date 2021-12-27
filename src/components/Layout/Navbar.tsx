@@ -20,7 +20,7 @@ const Navbar = () => {
         </div>
       </Link>
 
-      <div className={styles.navbar__links}>
+      <div className={styles.menuContainer}>
         <button type="button">User Tips</button>
       </div>
     </nav>

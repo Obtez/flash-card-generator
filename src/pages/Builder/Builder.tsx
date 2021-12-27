@@ -101,28 +101,30 @@ const BuilderPage = () => {
   }
 
   return (
-      <main className={styles.cardBuilder}>
-
-          <div className={styles.controls}>
-            <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)}/>
-            <div className={styles.previewBtn}>
-          
-              <ReactToPrint
-                  trigger={() => <Button type={"button"} isPrimary={true}>Print</Button>}
-                  content={() => printRef.current}
-                  documentTitle={"Flash Cards"}
-                  pageStyle={"margin: 1.2cm 1cm"}
-                  />
+      <div className={styles.builderContainer}>
+          <div className={styles.separator} />
+          <div className={styles.cardBuilder}>
+            <div className={styles.controls}>
+              <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)}/>
+              <div className={styles.previewBtn}>
+            
+                <ReactToPrint
+                    trigger={() => <Button type={"button"} isPrimary={true}>Print</Button>}
+                    content={() => printRef.current}
+                    documentTitle={"Flash Cards"}
+                    pageStyle={"margin: 1.2cm 1cm"}
+                    />
+              </div>
+              <div className={styles.deleteBtn}>
+                <Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button>
+              </div>
             </div>
-            <div className={styles.deleteBtn}>
-              <Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button>
-            </div>
+            
+                    <div className={styles.cardsContainer}>
+            {cardStack.length > 0 ?
+                <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal}/> : null}
+                    </div>
           </div>
-
-        <div className={styles.cardsContainer}>
-          {cardStack.length > 0 ?
-              <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal}/> : null}
-        </div>
 
         <div className={styles.hidden} ref={printRef}>
                   <Preview cardStack={cardStack} togglePreview={togglePreview}/>
@@ -139,7 +141,7 @@ const BuilderPage = () => {
               </div>
           ) : null
         }
-      </main>
+      </div>
   );
 }
 
