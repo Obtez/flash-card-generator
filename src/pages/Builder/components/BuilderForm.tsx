@@ -86,7 +86,7 @@ const CardForm = ({addCardToStack}: PropsType) => {
       maxLength={140}  
       required
         />
-      <small className={styles.charsLeft}>{charsLeft.front} left</small>
+      <small className={styles.charsLeft}>{charsLeft.front} symbols left</small>
       </div>
 
 
@@ -101,7 +101,7 @@ const CardForm = ({addCardToStack}: PropsType) => {
         maxLength={140}
         required 
         />
-        <small className={styles.charsLeft}>{charsLeft.back} left</small>
+        <small className={styles.charsLeft}>{charsLeft.back} symbols left</small>
       </div>
 
       <div className={styles.formGroup}>
@@ -114,7 +114,7 @@ const CardForm = ({addCardToStack}: PropsType) => {
         onChange={(e) => updateInputValue(e)}
         maxLength={140}  
         />
-        <small className={styles.charsLeft}>{charsLeft.footerFront} left</small>
+        <small className={styles.charsLeft}>{charsLeft.footerFront} symbols left</small>
       </div>
 
       <div className={styles.formGroup}>
@@ -127,7 +127,7 @@ const CardForm = ({addCardToStack}: PropsType) => {
         onChange={(e) => updateInputValue(e)}
         maxLength={140}  
         />
-        <small className={styles.charsLeft}>{charsLeft.footerBack} left</small>
+        <small className={styles.charsLeft}>{charsLeft.footerBack} symbols left</small>
       </div>
 
       <span className={styles.submitContainer}>

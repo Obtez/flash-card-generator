@@ -8,9 +8,9 @@
   }
 
   .navbar {
-    width: 95%;
+    width: 100%;
     margin: auto;
-    padding-top: .75rem;
+    padding-top: 2vh;
     text-align: start;
     display: flex;
     flex-flow: row nowrap;
@@ -22,8 +22,8 @@
       
       .logo {
         // width to manage the second line offset
-        width: 9.2rem;
-        padding-right: .625rem;
+        width: 16.1vh;
+        padding-right: 1.3vh;
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 65%;
@@ -40,7 +40,7 @@
       }
 
       .slogan {
-        margin-left: .938rem;
+        margin-left: 1.6vh;
         font-size: 1rem; 
         font-weight: 300;
         color: $text-muted;
@@ -61,7 +61,6 @@
         font-size: 1rem;
         font-weight: 700;
         text-decoration: underline;
-        letter-spacing: 0.03em;
         border: none;
       }
     }

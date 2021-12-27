@@ -1,7 +1,7 @@
 import { AiOutlineDelete } from "react-icons/ai"
 import { BiEdit } from "react-icons/bi"
 import { ICard } from "types";
-import styles from "../_styles/CardBuilder.module.scss";
+import styles from "./Card.module.scss";
 
 interface PropsType {
   card: ICard
@@ -11,7 +11,7 @@ interface PropsType {
 
 const Card = ({ card, deleteCard, populateEditModal }: PropsType) => {
   return (
-    <li className={styles.cardItem}>
+    <li className={styles.card}>
       <div className={styles.cardFront} onClick={() => populateEditModal(card.id, false)}>
         <p className={styles.cardBody}>{card.front}</p>
         {

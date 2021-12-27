@@ -303,7 +303,7 @@
 
 .separator { 
   width: 100%;
-  height: 2.5rem;
+  height: 5.8vh;
 }
 
 .cardBuilder {
@@ -311,6 +311,7 @@
   grid-template-areas: 
   "controls cards"
   "buttons cards";
+  grid-template-columns: min-content auto;
   grid-template-rows: auto 1fr;
   gap: 3rem;
 }
@@ -325,4 +326,5 @@
 
 .cardsContainer {
   grid-area: cards;
+
 }
