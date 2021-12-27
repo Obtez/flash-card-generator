@@ -10,15 +10,51 @@
   .navbar {
     width: 95%;
     margin: auto;
-    padding: .813rem 0 2.563rem 0;
+    padding: .75rem 0 2.563rem 0;
     text-align: start;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 
-    .logo {
-      font-size: 1.5rem;
-      font-style: italic;
-      font-weight: 700;
-      color: $text;
-      text-decoration: none;
+    .logoContainer {
+      display: flex;
+      flex-flow: row nowrap;
+      
+      .logo {
+        // width to manage the second line offset
+        width: 9.2rem;
+        padding-right: .625rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 65%;
+        color: $text;
+        text-decoration: none;
+        border-right: 1px solid $text;
+        
+        display: flex;
+        flex-flow: column nowrap;
+
+        span:nth-of-type(2) {
+          text-align: end;
+        }
+      }
+
+      
+
+      .slogan {
+        margin-left: .938rem;
+        font-size: 1rem; 
+        font-weight: 300;
+        color: $text-muted;
+
+        display: flex;
+        flex-flow: column nowrap;
+        
+        span {
+          line-height: 101.2%;
+          letter-spacing: .045em;
+        }
+      }
     }
 
     ul {
