@@ -3,7 +3,7 @@ import styles from "./Layout.module.scss"
 const Footer = () => {
   return (
     <footer  className={styles.footer}>
-      <small>&copy; Copyright 2021, David Beer</small>
+      <small>&copy; 2021, David Beer</small>
     </footer>
   )
 }

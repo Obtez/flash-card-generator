@@ -106,12 +106,16 @@ const BuilderPage = () => {
       <div className={styles.controls}>
         <div className={styles.separator} />
         <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
+        <div className={styles.borderToggleContainer}>
+          <img src="./assets/icons/toggleOFF.svg" alt="toggleOFF" />
+          <p>Cutting borders</p>
+        </div>
       </div>
 
       <div className={styles.buttons}>
         <div className={styles.previewBtn}>
           <ReactToPrint
-            trigger={() => <Button type={"button"} isPrimary={true}>Print</Button>}
+            trigger={() => <button type="button">PREVIEW AND PRINT</button>}
             content={() => printRef.current}
             documentTitle={"Flash Cards"}
             pageStyle={"margin: 1.2cm 1cm"}
@@ -119,7 +123,7 @@ const BuilderPage = () => {
         </div>
         
         <div className={styles.deleteBtn}>
-          <Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button>
+          <button type="button" onClick={() => deleteAllCards()}>Delete All Cards</button>
         </div>
       </div>
 
