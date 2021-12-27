@@ -75,7 +75,7 @@ const CardForm = ({addCardToStack}: PropsType) => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.formContainer}>
-      <div className={styles.formGroup}>
+      <div className={`${styles.formGroup} ${styles.frontGroup}`}>
       <label htmlFor="front">Front</label>
       <input 
       type="text" 
@@ -90,7 +90,7 @@ const CardForm = ({addCardToStack}: PropsType) => {
       </div>
 
 
-       <div className={styles.formGroup}>
+       <div className={`${styles.formGroup} ${styles.backGroup}`}>
         <label htmlFor="back">Back</label>
         <input 
         type="text" 
@@ -101,7 +101,7 @@ const CardForm = ({addCardToStack}: PropsType) => {
         maxLength={140}
         required 
         />
-        <small className={styles.charsLeft}>{charsLeft.back} symbols left</small>
+        <small className={`${styles.formGroup} ${styles.frontFooterGroup}`}>{charsLeft.back} symbols left</small>
       </div>
 
       <div className={styles.formGroup}>
@@ -117,7 +117,7 @@ const CardForm = ({addCardToStack}: PropsType) => {
         <small className={styles.charsLeft}>{charsLeft.footerFront} symbols left</small>
       </div>
 
-      <div className={styles.formGroup}>
+      <div className={`${styles.formGroup} ${styles.backFooterGroup}`}>
         <label htmlFor="footerBack">Back footer</label>
         <input 
         type="text" 

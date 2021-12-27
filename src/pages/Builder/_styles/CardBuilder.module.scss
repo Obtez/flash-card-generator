@@ -367,3 +367,17 @@
 .cardsContainer {
   grid-area: cards;
 }
+
+@media screen and (max-width: 1024px) {
+  .separator {
+    height: 2.35vh;
+  }
+
+  .cardBuilder {
+    grid-template-areas: 
+    "controls"
+    "cards"
+    "buttons";
+    grid-template-columns: auto;
+  }
+}

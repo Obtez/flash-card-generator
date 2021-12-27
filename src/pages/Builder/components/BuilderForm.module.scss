@@ -1,53 +1,95 @@
 @import "../../../styles/variables";
 
-.formContainer {
-  width: 30.75vh;
-  padding-top: 2vh;
-  padding-right: 2.3vh;
-  padding-bottom: 2.7vh;
-  padding-left: 2.3vh;
-  border-radius: 0.65vh;
-  background-color: $form-bg;
+  .formContainer {
+    width: 30.75vh;
+    padding-top: 2vh;
+    padding-right: 2.3vh;
+    padding-bottom: 2.7vh;
+    padding-left: 2.3vh;
+    border-radius: 0.65vh;
+    background-color: $form-bg;
 
-  .formGroup {
-    margin-bottom: 0.65vh;
+    .formGroup {
+      margin-bottom: 0.65vh;
 
-    label {
-      display: block;
-      margin-bottom: 0.4vh;
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: $label;
-    }
+      label {
+        display: block;
+        margin-bottom: 0.4vh;
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: $label;
+      }
     
-    input {
-      display: block;
-      width: 100%;
-      margin-bottom: 0.3vh;
-      padding: 0.86vh 1.7vh;
-      font-size: 1rem;
-      border: none;
-      border-radius: 0.65vh;
-    }
+      input {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.3vh;
+        padding: 0.86vh 1.7vh;
+        font-size: 1rem;
+        border: none;
+        border-radius: 0.65vh;
+      }
     
-    small {
-      display: block;
-      text-align: end;
-      font-size: .75rem;
+      small {
+        display: block;
+        text-align: end;
+        font-size: .75rem;
+      }
+    }
+
+    .submitContainer {
+      input {
+        width: 100%;
+        margin-top: .65vh;
+        padding: 1vh;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: white;
+        background-color: $label;
+        border: none;
+        border-radius: 0.65vh;
+      }
     }
   }
 
+
+@media screen and (max-width: 1024px) {
+  .formContainer {
+    width: 100%;
+    display: grid;
+    padding-bottom: 1.4vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "frontGroup frontFooterGroup"
+    "backGroup backFooterGroup";
+    gap: 0 2vh;
+  }
+
+   .formGroup {
+    margin-bottom: 0.65vh;
+  } 
+
   .submitContainer {
-    input {
-      width: 100%;
-      margin-top: .65vh;
-      padding: 1vh;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: white;
-      background-color: $label;
-      border: none;
-      border-radius: 0.65vh;
+    width: 50%;
+    input[type=submit] {
+      margin-top: 0;
+      padding: .5vh;
     }
+  }
+
+  .frontGroup {
+    grid-area: frontGroup;
+  }
+
+  .backGroup {
+    grid-area: backGroup;
+  }
+
+  .frontFooterGroup {
+    grid-area: frontFooterGroup;
+  }
+
+  .backFooterGroup {
+    grid-area: backFooterGroup;
   }
 }
