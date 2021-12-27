@@ -4,7 +4,7 @@
   .navbar {
     width: 95%;
     margin: auto;
-    padding: 1rem 0;
+    padding: .813rem 0 2.563rem 0;
     text-align: start;
 
     .logo {
@@ -36,43 +36,10 @@
   }
 }
 
-// .navbar {
-//   padding: 0.5416em 240px 1.7083em 240px;
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .logo {
-//   font-size: 1.5em;
-//   font-style: italic;
-//   font-weight: 700;
-//   color: $text;
-//   text-decoration: none;
-
-//   &:hover {
-//     color: $accent;
-//   }
-  
-// }
-
-// .menu {
-//   width: 207px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   list-style-type: none;
-
-//   a {
-//     font-size: 1em;
-//     text-decoration: none;
-//     color: $text;
-
-//     &:hover {
-//       color: $accent;
-//     }
-//   }
-// }
-
-// .footer {
-//   text-align: center;
-// }
+@media screen and (min-width: 1400px) {
+  .navbar {
+    width: 100%;
+    padding-left: 240px;
+    padding-right: 240px;
+  }
+}
