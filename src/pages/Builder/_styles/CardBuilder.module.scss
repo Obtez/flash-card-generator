@@ -103,4 +103,22 @@ and (orientation: portrait) {
   }
 }
 
-// IPAD (not pro) landscape
+// TABLET (landscape)
+@media screen 
+and (max-width: 1024px) 
+and (max-height: 768px) 
+and (orientation: landscape) {
+  .cardBuilder {
+    gap: auto;
+  }
+
+  .buttons {
+    .previewBtn {
+      button {
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: .03rem;
+      }
+    }
+  }
+}
