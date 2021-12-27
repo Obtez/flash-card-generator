@@ -1,6 +1,6 @@
 import { ICard } from "types";
 import Card from "./Card";
-import styles from "../_styles/CardBuilder.module.scss";
+import styles from "./CardList.module.scss";
 
 interface PropsType {
   cardStack: ICard[]
@@ -11,12 +11,20 @@ interface PropsType {
 const CardList = ({ cardStack, deleteCard, populateEditModal }: PropsType) => {  
   return (
     <section className={styles.cardList}>
+      <header className={styles.columnHeading}>
+          <h3>Front</h3>
+          <h3>Back</h3>
+      </header>
       <ul>
-        {cardStack.map(card => {
-        return (
-          <Card card={card} key={card.id} deleteCard={deleteCard} populateEditModal={populateEditModal} />
+        {
+          cardStack.map(card => <Card
+            key={card.id}
+            card={card}
+            deleteCard={deleteCard}
+            populateEditModal={populateEditModal}
+          />
           )
-        })}
+        }
       </ul>
       
     </section>  

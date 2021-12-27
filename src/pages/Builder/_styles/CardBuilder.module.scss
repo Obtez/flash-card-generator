@@ -1,297 +1,328 @@
-@import "../../../styles/variables";
-@import "../../../styles/mixins";
+// @import "../../../styles/variables";
+// @import "../../../styles/mixins";
 
-@media screen {
-  .builderContainer {
-    .separator {
-      width: 100%;
-      height: 2.5rem;
-    }
-  }
-  .cardBuilder {
-    margin: 0;
-    display: flex;
-    flex-flow: column nowrap;
+// @media screen {
+//   .separator {
+//     width: 100%;
+//     height: 2.5rem;
+//   }
+
+//   .cardBuilder {
+//     margin: 0;
+//     display: flex;
+//     flex-flow: column nowrap;
 
     
 
-    .previewBtn {
-      width: 95%;
-      margin: auto;
-      margin-top: 2.8125rem;
-    }
-  }
+//     .previewBtn {
+//       width: 95%;
+//       margin: auto;
+//       margin-top: 2.8125rem;
+//     }
+//   }
 
-  .formContainer {
-    width: 100%;
-    padding: 0rem 1rem 1.5rem 1rem;
-    border-radius: 6px;
-    position: relative;
-    background-color: $bg-dark;
+//   .formContainer {
+//     width: 100%;
+//     padding: 0rem 1rem 1.5rem 1rem;
+//     border-radius: 6px;
+//     position: relative;
+//     background-color: $bg-dark;
 
-    .formGroup {
-      label {
-        display: block;
-        padding-top: 1.438rem;
-        margin-bottom: 0.188rem;
-        font-size: 1.125rem;
-        font-weight: 700;
-      }
+//     .formGroup {
+//       label {
+//         display: block;
+//         padding-top: 1.438rem;
+//         margin-bottom: 0.188rem;
+//         font-size: 1.125rem;
+//         font-weight: 700;
+//       }
 
-      input[type="text"] {
-        width: 100%;
-        display: block;
-        padding: 0.5em 1em;
-        font-size: 1em;
-        border-radius: 6px;
-        border: none;
-      }
+//       input[type="text"] {
+//         width: 100%;
+//         display: block;
+//         padding: 0.5em 1em;
+//         font-size: 1em;
+//         border-radius: 6px;
+//         border: none;
+//       }
 
-      .charsLeft {
-        display: block;
-        text-align: end;
-        font-size: .75rem;
-      }
-    }
+//       .charsLeft {
+//         display: block;
+//         text-align: end;
+//         font-size: .75rem;
+//       }
+//     }
 
-    .submitContainer {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
+//     .submitContainer {
+//       width: 100%;
+//       display: flex;
+//       justify-content: center;
+//     }
 
-     input[type="submit"] {
-      display: block;
-      position: absolute;
-      bottom: -1.3rem;
-      background-color: $bg-dark;
-      border: none;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      font-weight: 700;
-      padding: .25rem .6rem .25rem .6rem;
-    }
-  }
+//      input[type="submit"] {
+//       display: block;
+//       position: absolute;
+//       bottom: -1.3rem;
+//       background-color: $bg-dark;
+//       border: none;
+//       border-radius: 50%;
+//       font-size: 1.5rem;
+//       font-weight: 700;
+//       padding: .25rem .6rem .25rem .6rem;
+//     }
+//   }
 
-  .cardsContainer {
-    width: 100%;
-    margin: auto;
-  }
+//   .cardsContainer {
+//     width: 100%;
+//     margin: auto;
+//   }
 
-  .cardList {
-    margin-top: 2rem;
-  }
+//   .cardList {
+//     margin-top: 2rem;
+//   }
 
-  .cardItem {
-    width: 100%;
-    margin-bottom: 2rem;
+//   .cardItem {
+//     width: 100%;
+//     margin-bottom: 2rem;
 
-    display: flex;
-    flex-flow: column nowrap;
+//     display: flex;
+//     flex-flow: column nowrap;
 
-    .cardFront,
-    .cardBack {
-      background-color: $light;
-      height: calc(95vw / 1.7191011236);
-      border-radius: 6px;
-      display: flex;
-      flex-flow: column nowrap;
-      position: relative;
+//     .cardFront,
+//     .cardBack {
+//       background-color: $light;
+//       height: calc(95vw / 1.7191011236);
+//       border-radius: 6px;
+//       display: flex;
+//       flex-flow: column nowrap;
+//       position: relative;
       
-      .cardBody {
-        flex-grow: 1;
-        display: flex;
-        flex-flow: row wrap;
-        white-space: pre-wrap;
-        padding: 1rem;
-        justify-content: center;
-        align-items: center;
-      }
+//       .cardBody {
+//         flex-grow: 1;
+//         display: flex;
+//         flex-flow: row wrap;
+//         white-space: pre-wrap;
+//         padding: 1rem;
+//         justify-content: center;
+//         align-items: center;
+//       }
 
-      .cardFooter {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        padding: .3rem;
-        text-align: end;
-      }
-    }
+//       .cardFooter {
+//         position: absolute;
+//         bottom: 0;
+//         width: 100%;
+//         padding: .3rem;
+//         text-align: end;
+//       }
+//     }
 
-    .cardFront {
-      margin-bottom: 1rem;
-    }
+//     .cardFront {
+//       margin-bottom: 1rem;
+//     }
 
-    .btnContainer {
-      margin-top: .2rem;
-      text-align: end;
-      font-size: 1.5rem;
+//     .btnContainer {
+//       margin-top: .2rem;
+//       text-align: end;
+//       font-size: 1.5rem;
 
-      .editIcon {
-        color: $text-icon;
-      }
+//       .editIcon {
+//         color: $text-icon;
+//       }
 
-      .deleteIcon {
-        margin-left: .5rem;
-        color: $accent-icon;
-      }
-    }
-  }
+//       .deleteIcon {
+//         margin-left: .5rem;
+//         color: $accent-icon;
+//       }
+//     }
+//   }
 
-  .editModal {
-    position: fixed;
-    background-color: rgba(20,20,32,.31);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+//   .editModal {
+//     position: fixed;
+//     background-color: rgba(20,20,32,.31);
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
 
-    .editContainer {
-      width: 95%;
-      margin: auto;
-      text-align: center;
-      background-color: $bg-dark;
-      color: $text;
-      border-radius: 6px;
-      padding: 1rem;
+//     .editContainer {
+//       width: 95%;
+//       margin: auto;
+//       text-align: center;
+//       background-color: $bg-dark;
+//       color: $text;
+//       border-radius: 6px;
+//       padding: 1rem;
 
-      form {
-        label {
-          display: block;
-          text-align: left;
-          padding-top: 1.438rem;
-          margin-bottom: 0.188rem;
-          font-size: 1.125rem;
-          font-weight: 700;
-        }
+//       form {
+//         label {
+//           display: block;
+//           text-align: left;
+//           padding-top: 1.438rem;
+//           margin-bottom: 0.188rem;
+//           font-size: 1.125rem;
+//           font-weight: 700;
+//         }
 
-        input[type="text"] {
-          width: 100%;
-          display: block;
-          padding: 0.5em 1em;
-          font-size: 1em;
-          border-radius: 6px;
-          border: none;
-        }
+//         input[type="text"] {
+//           width: 100%;
+//           display: block;
+//           padding: 0.5em 1em;
+//           font-size: 1em;
+//           border-radius: 6px;
+//           border: none;
+//         }
 
-        input[type="submit"] {
-          display: block;
-          width: 100%;
-          margin-top: 1.5rem;
-          padding: .5rem 0;
-          border-radius: 6px;
-          font-weight: 500;
+//         input[type="submit"] {
+//           display: block;
+//           width: 100%;
+//           margin-top: 1.5rem;
+//           padding: .5rem 0;
+//           border-radius: 6px;
+//           font-weight: 500;
 
-          font-size: 1.25rem;
-          color: $light;
-          background-color: $accent;
-          border: none;
-        }
-      }
+//           font-size: 1.25rem;
+//           color: $light;
+//           background-color: $accent;
+//           border: none;
+//         }
+//       }
       
-      h3 {
-        font-size: 1.8rem;
-      }
-    }
-  }
+//       h3 {
+//         font-size: 1.8rem;
+//       }
+//     }
+//   }
 
-  .hidden {
-    visibility: hidden;
-    position: absolute;
-    z-index: 100;
-  }
-}
+//   .hidden {
+//     visibility: hidden;
+//     position: absolute;
+//     z-index: 100;
+//   }
+// }
 
-@media screen and (min-width: 1024px) {
-  .cardBuilder {
-    flex-flow: row nowrap;
-  }
+// @media screen and (min-width: 1024px) {
+//   .cardBuilder {
+//     flex-flow: row nowrap;
+//   }
 
-  .controls {
-    // width: 33%;
-    // max-width: 360px;
-  }
+//   .controls {
+//     // width: 33%;
+//     // max-width: 360px;
+//   }
 
-  .cardsContainer {
-    width: auto;
-    padding: 0;
-    margin: 0 auto;
-  }
+//   .cardsContainer {
+//     width: auto;
+//     padding: 0;
+//     margin: 0 auto;
+//   }
 
-  .cardList {
-    margin-top: 0;
+//   .cardList {
+//     margin-top: 0;
 
-    ul {
-      width: 100%;
-    }
-  }
+//     ul {
+//       width: 100%;
+//     }
+//   }
 
-  .cardItem {
-    flex-flow: row wrap;
+//   .cardItem {
+//     flex-flow: row wrap;
 
-    max-width: calc(560px * 2);
+//     max-width: calc(560px * 2);
 
-    .cardFront,
-    .cardBack {
-      width: calc(50% - .5rem);
-      height: calc(33vw / 1.7191011236);
+//     .cardFront,
+//     .cardBack {
+//       width: calc(50% - .5rem);
+//       height: calc(33vw / 1.7191011236);
 
-      max-width: 560px;
-      max-height: calc(560px / 1.7191011236);
+//       max-width: 560px;
+//       max-height: calc(560px / 1.7191011236);
 
-      .cardFooter {
-        border-top: 1px solid $text;
-        padding: .4rem .8rem;
-      }
-    }
+//       .cardFooter {
+//         border-top: 1px solid $text;
+//         padding: .4rem .8rem;
+//       }
+//     }
 
-    .cardFront {
-      margin-right: 1rem;
-      margin-bottom: 0.2rem;
-    }
+//     .cardFront {
+//       margin-right: 1rem;
+//       margin-bottom: 0.2rem;
+//     }
 
-    .btnContainer {
-      display: flex;
-      width: 100%;
-      margin-top: 0;
-      align-items: flex-start;
-      justify-content: flex-end;
-      font-size: 1.2rem;
-    }
-  }
+//     .btnContainer {
+//       display: flex;
+//       width: 100%;
+//       margin-top: 0;
+//       align-items: flex-start;
+//       justify-content: flex-end;
+//       font-size: 1.2rem;
+//     }
+//   }
 
-  .editModal {
+//   .editModal {
 
-    .editContainer {
-      max-width: 360px;
-    }
-  }
-}
+//     .editContainer {
+//       max-width: 360px;
+//     }
+//   }
+// }
 
-@media screen and (min-width: 1400px) {
-  .cardBuilder {
+// @media screen and (min-width: 1400px) {
+//   .cardBuilder {
 
-    .controls {
-    }
-  }
+//     .controls {
+//     }
+//   }
 
-  .formContainer {
-  }
+//   .formContainer {
+//   }
 
-  .cardItem {
-    display: block;
+//   .cardItem {
+//     display: block;
 
-    .cardFront,
-    .cardBack {
-      display: inline-flex;
-    }
+//     .cardFront,
+//     .cardBack {
+//       display: inline-flex;
+//     }
     
-    .cardFront {
-    }
+//     .cardFront {
+//     }
 
-    .btnContainer {
-    }
-  }
+//     .btnContainer {
+//     }
+//   }
+// }
+
+.hidden {
+  visibility: hidden;
+  position: absolute;
+  z-index: 100;
+}
+
+.separator { 
+  width: 100%;
+  height: 2.5rem;
+}
+
+.cardBuilder {
+  display: grid;
+  grid-template-areas: 
+  "controls cards"
+  "buttons cards";
+  grid-template-rows: auto 1fr;
+  gap: 3rem;
+}
+
+.controls {
+  grid-area: controls;
+}
+
+.buttons {
+  grid-area: buttons;
+}
+
+.cardsContainer {
+  grid-area: cards;
 }

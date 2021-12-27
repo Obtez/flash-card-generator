@@ -1,0 +1,48 @@
+@import "../../../styles/variables";
+
+.formContainer {
+  width: 286px;
+  padding: 1.125rem 1.375rem 1.563rem 1.375rem;
+  border-radius: .375rem;
+  background-color: $form-bg;
+
+  .formGroup {
+
+    label {
+      display: block;
+      margin-bottom: .188rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: $label;
+    }
+    
+    input {
+      display: block;
+      width: 100%;
+      margin-bottom: .188rem;
+      padding: .5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: .375rem;
+    }
+    
+    small {
+      display: block;
+      text-align: end;
+      font-size: .75rem;
+    }
+  }
+
+  .submitContainer {
+    input {
+      width: 100%;
+      padding: .625rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      background-color: $label;
+      border: none;
+      border-radius: .375rem;
+    }
+  }
+}

@@ -68,18 +68,18 @@ const BuilderPage = () => {
     setCardToEdit(tempCardStack[index])
   }
 
-   function toggleEdit(isOpen: boolean) {
+  function toggleEdit(isOpen: boolean) {
     if (isOpen) {
       setShowEdit(false)
     } else {
       setShowEdit(true)
     }
-   }
-  
+  }
+
   function updateCardStack(card: ICard, isOpen: boolean) {
     toggleEdit(isOpen)
 
-   
+
     const tempCardStack = cardStack
     const index = tempCardStack.findIndex(c => c.id === card.id)
     tempCardStack[index] = card
@@ -101,47 +101,50 @@ const BuilderPage = () => {
   }
 
   return (
-      <div className={styles.builderContainer}>
-          <div className={styles.separator} />
-          <div className={styles.cardBuilder}>
-            <div className={styles.controls}>
-              <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)}/>
-              <div className={styles.previewBtn}>
-            
-                <ReactToPrint
-                    trigger={() => <Button type={"button"} isPrimary={true}>Print</Button>}
-                    content={() => printRef.current}
-                    documentTitle={"Flash Cards"}
-                    pageStyle={"margin: 1.2cm 1cm"}
-                    />
-              </div>
-              <div className={styles.deleteBtn}>
-                <Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button>
-              </div>
-            </div>
-            
-                    <div className={styles.cardsContainer}>
-            {cardStack.length > 0 ?
-                <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal}/> : null}
-                    </div>
-          </div>
+    <div className={styles.cardBuilder}>
 
-        <div className={styles.hidden} ref={printRef}>
-                  <Preview cardStack={cardStack} togglePreview={togglePreview}/>
-        </div>
-
-
-
-        {
-          showEdit ? (
-              <div className={styles.editModal}>
-                <div className={styles.editContainer}>
-                  <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack}/>
-                </div>
-              </div>
-          ) : null
-        }
+      <div className={styles.controls}>
+        <div className={styles.separator} />
+        <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
       </div>
+
+      <div className={styles.buttons}>
+        <div className={styles.previewBtn}>
+          <ReactToPrint
+            trigger={() => <Button type={"button"} isPrimary={true}>Print</Button>}
+            content={() => printRef.current}
+            documentTitle={"Flash Cards"}
+            pageStyle={"margin: 1.2cm 1cm"}
+          />
+        </div>
+        
+        <div className={styles.deleteBtn}>
+          <Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button>
+        </div>
+      </div>
+
+      <div className={styles.cardsContainer}>
+        {cardStack.length > 0 ?
+          <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal} /> : null}
+      </div>
+
+
+      <div className={styles.hidden} ref={printRef}>
+        <Preview cardStack={cardStack} togglePreview={togglePreview} />
+      </div>
+
+
+
+      {
+        showEdit ? (
+          <div className={styles.editModal}>
+            <div className={styles.editContainer}>
+              <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack} />
+            </div>
+          </div>
+        ) : null
+      }
+    </div>
   );
 }
 
