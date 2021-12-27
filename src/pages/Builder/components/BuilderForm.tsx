@@ -4,7 +4,7 @@ import { FormEvent, useState, useEffect, useRef } from "react";
 import { ChangeEvent } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import { ICard } from "types";
-import styles from "./_styles/CardBuilder.module.scss";
+import styles from "../_styles/CardBuilder.module.scss";
 
 interface PropsType {
   addCardToStack: (card: ICard) => void

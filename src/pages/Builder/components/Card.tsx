@@ -1,7 +1,7 @@
 import { AiOutlineDelete } from "react-icons/ai"
 import { BiEdit } from "react-icons/bi"
 import { ICard } from "types";
-import styles from "./_styles/CardBuilder.module.scss";
+import styles from "../_styles/CardBuilder.module.scss";
 
 interface PropsType {
   card: ICard

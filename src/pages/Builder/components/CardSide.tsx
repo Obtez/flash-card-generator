@@ -1,5 +1,5 @@
 import { ICard } from "types";
-import styles from "./_styles/Preview.module.scss";
+import styles from "../_styles/Preview.module.scss";
 
 interface PropsTypes {
   id: string

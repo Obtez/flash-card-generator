@@ -2,9 +2,9 @@ import Button from "components/Button/Button";
 import { useEffect, useRef, useState } from "react";
 import ReactToPrint from "react-to-print";
 import { ICard } from "types";
-import BuilderForm from "./BuilderForm";
-import CardList from "./CardList";
-import EditModal from "./EditModal";
+import BuilderForm from "./components/BuilderForm";
+import CardList from "./components/CardList";
+import EditModal from "./components/EditModal";
 import Preview from "./Preview";
 import styles from "./_styles/CardBuilder.module.scss";
 
