@@ -3,8 +3,8 @@ import {ChangeEvent} from "react"
 import FormGroup from "components/forms/FormGroup/FormGroup"
 import FormLabel from "components/forms/FormLabel/FormLabel"
 import SubmitButton from "components/forms/SubmitButton/SubmitButton"
-import {ICard} from "../../types"
-import styles from "./_styles/CardBuilder.module.scss"
+import {ICard} from "../../../types"
+import styles from "../_styles/CardBuilder.module.scss"
 
 interface PropTypes {
   cardToEdit: ICard

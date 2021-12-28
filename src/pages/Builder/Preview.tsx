@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { ICard } from "types";
-import CardSide from './CardSide';
+import CardSide from './components/CardSide';
 import styles from "./_styles/Preview.module.scss";
 
 

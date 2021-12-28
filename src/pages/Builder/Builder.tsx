@@ -1,10 +1,9 @@
-import Button from "components/Button/Button";
 import { useEffect, useRef, useState } from "react";
 import ReactToPrint from "react-to-print";
 import { ICard } from "types";
-import BuilderForm from "./BuilderForm";
-import CardList from "./CardList";
-import EditModal from "./EditModal";
+import BuilderForm from "./components/BuilderForm";
+import CardList from "./components/CardList";
+import EditModal from "./components/EditModal";
 import Preview from "./Preview";
 import styles from "./_styles/CardBuilder.module.scss";
 
@@ -68,18 +67,18 @@ const BuilderPage = () => {
     setCardToEdit(tempCardStack[index])
   }
 
-   function toggleEdit(isOpen: boolean) {
+  function toggleEdit(isOpen: boolean) {
     if (isOpen) {
       setShowEdit(false)
     } else {
       setShowEdit(true)
     }
-   }
-  
+  }
+
   function updateCardStack(card: ICard, isOpen: boolean) {
     toggleEdit(isOpen)
 
-   
+
     const tempCardStack = cardStack
     const index = tempCardStack.findIndex(c => c.id === card.id)
     tempCardStack[index] = card
@@ -101,45 +100,54 @@ const BuilderPage = () => {
   }
 
   return (
-      <main className={styles.cardBuilder}>
+    <div className={styles.cardBuilder}>
 
-          <div className={styles.controls}>
-            <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)}/>
-            <div className={styles.previewBtn}>
-          
-              <ReactToPrint
-                  trigger={() => <Button type={"button"} isPrimary={true}>Print</Button>}
-                  content={() => printRef.current}
-                  documentTitle={"Flash Cards"}
-                  pageStyle={"margin: 1.2cm 1cm"}
-                  />
-            </div>
-            <div className={styles.deleteBtn}>
-              <Button type="button" isPrimary={false} onClick={() => deleteAllCards()}>Delete All Cards</Button>
+      <div className={styles.controls}>
+        <div className={styles.separator} />
+        <BuilderForm addCardToStack={(card: ICard) => addCardToStack(card)} />
+        <div className={styles.borderToggleContainer}>
+          <img src="./assets/icons/toggleOFF.svg" alt="toggleOFF" />
+          <p>Cutting borders</p>
+        </div>
+      </div>
+
+      <div className={styles.buttons}>
+        <div className={styles.previewBtn}>
+          <ReactToPrint
+            trigger={() => <button type="button">PREVIEW AND PRINT</button>}
+            content={() => printRef.current}
+            documentTitle={"Flash Cards"}
+            pageStyle={"margin: 1.2cm 1cm"}
+          />
+        </div>
+        
+        <div className={styles.deleteBtn}>
+          <button type="button" onClick={() => deleteAllCards()}>Delete All Cards</button>
+        </div>
+      </div>
+
+      <div className={styles.cardsContainer}>
+        {cardStack.length > 0 ?
+          <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal} /> : null}
+      </div>
+
+
+      <div className={styles.hidden} ref={printRef}>
+        <Preview cardStack={cardStack} togglePreview={togglePreview} />
+      </div>
+
+
+
+      {
+        showEdit ? (
+          <div className={styles.editModal}>
+            <div className={styles.editContainer}>
+              <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack} />
             </div>
           </div>
-
-        <div className={styles.cardsContainer}>
-          {cardStack.length > 0 ?
-              <CardList cardStack={cardStack} deleteCard={deleteCard} populateEditModal={populateEditModal}/> : null}
-        </div>
-
-        <div className={styles.hidden} ref={printRef}>
-                  <Preview cardStack={cardStack} togglePreview={togglePreview}/>
-        </div>
-
-
-
-        {
-          showEdit ? (
-              <div className={styles.editModal}>
-                <div className={styles.editContainer}>
-                  <EditModal cardToEdit={cardToEdit} updateCardStack={updateCardStack}/>
-                </div>
-              </div>
-          ) : null
-        }
-      </main>
+        ) : null
+      }
+    </div>
   );
 }
 
